@@ -34,8 +34,8 @@ A modern React.js car parts e-commerce website built with Tailwind CSS, featurin
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/pops-and-bags.git
-cd pops-and-bags
+git clone https://github.com/vperalta-git/popsnbags.git
+cd popsnbags
 ```
 
 2. Install dependencies:
