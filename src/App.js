@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
+import emailjs from '@emailjs/browser';
 import Landing from './components/Landing';
 import Products from './components/Products';
 import FlashSale from './components/FlashSale';
@@ -12,6 +13,11 @@ import Contact from './components/Contact';
 import DIYTutorials from './components/DIYTutorials';
 
 function App() {
+  useEffect(() => {
+    // Initialize EmailJS
+    emailjs.init('user_2V8x9jK7QjKl4H8Rz');
+  }, []);
+
   return (
     <CartProvider>
       <Router>
