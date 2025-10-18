@@ -15,7 +15,7 @@ import DIYTutorials from './components/DIYTutorials';
 function App() {
   useEffect(() => {
     // Initialize EmailJS
-    emailjs.init('user_2V8x9jK7QjKl4H8Rz');
+    emailjs.init(process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'user_2V8x9jK7QjKl4H8Rz');
   }, []);
 
   return (

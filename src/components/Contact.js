@@ -29,17 +29,17 @@ const Contact = () => {
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
-        to_email: 'vionneulrichp@gmail.com',
+        to_email: process.env.REACT_APP_CONTACT_EMAIL || 'vionneulrichp@gmail.com',
         subject: formData.subject,
         message: formData.message,
       };
 
-      // Using EmailJS public service (no account needed)
+      // Using EmailJS service
       await emailjs.send(
-        'service_8x7hsob', // Public service ID
-        'template_gmkqpbc', // Public template ID  
+        process.env.REACT_APP_EMAILJS_SERVICE_ID || 'service_8x7hsob',
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID || 'template_gmkqpbc',
         templateParams,
-        'user_2V8x9jK7QjKl4H8Rz' // Public key
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'user_2V8x9jK7QjKl4H8Rz'
       );
 
       setSubmitStatus('success');

@@ -64,16 +64,16 @@ ${orderNotes ? `Order Notes: ${orderNotes}` : ''}
       const templateParams = {
         from_name: `${customerInfo.firstName} ${customerInfo.lastName}`,
         from_email: customerInfo.email,
-        to_email: 'vionneulrichp@gmail.com',
+        to_email: process.env.REACT_APP_CONTACT_EMAIL || 'vionneulrichp@gmail.com',
         subject: `Order Confirmation - ${orderNum}`,
         message: orderMessage,
       };
 
       await emailjs.send(
-        'service_8x7hsob',
-        'template_gmkqpbc',
+        process.env.REACT_APP_EMAILJS_SERVICE_ID || 'service_8x7hsob',
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID || 'template_gmkqpbc',
         templateParams,
-        'user_2V8x9jK7QjKl4H8Rz'
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'user_2V8x9jK7QjKl4H8Rz'
       );
     } catch (error) {
       console.error('Failed to send order email:', error);
