@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useCart } from '../context/CartContext';
 import Navigation from './Navigation';
 
 const Checkout = () => {
   const { cartItems, cartTotal, clearCart, discount } = useCart();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Add a small delay to ensure cart context is loaded
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
   const [customerInfo, setCustomerInfo] = useState({
     firstName: '',
     lastName: '',
@@ -82,6 +91,31 @@ ${orderNotes ? `Order Notes: ${orderNotes}` : ''}
     clearCart();
   };
 
+  // Loading state
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gray-900">
+        <Navigation />
+        <div className="flex items-center justify-center py-20">
+          <div className="text-white text-xl">Loading checkout...</div>
+        </div>
+      </div>
+    );
+  }
+
+  // Debug: Check if cart context is available
+  if (!cartItems) {
+    return (
+      <div className="min-h-screen bg-gray-900">
+        <Navigation />
+        <div className="flex items-center justify-center py-20">
+          <div className="text-white text-xl">Cart context not available. Please refresh the page.</div>
+        </div>
+      </div>
+    );
+  }
+
+  // Order complete state
   if (orderComplete) {
     return (
       <div className="min-h-screen bg-gray-900">
