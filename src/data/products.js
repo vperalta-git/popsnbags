@@ -1,4 +1,6 @@
 // Shared product data for the entire application
+import { getProductImage } from './productImages';
+
 export const getStaticProducts = () => {
   return [
     {
@@ -8,6 +10,7 @@ export const getStaticProducts = () => {
       originalPrice: 7417,
       category: 'Exhaust System',
       brand: 'HKS',
+      image: '/images/productpics/hks_muff-removebg-preview.png',
       description: 'High-performance exhaust muffler for enhanced sound and flow'
     },
     {
@@ -17,6 +20,7 @@ export const getStaticProducts = () => {
       originalPrice: 30417,
       category: 'Suspension',
       brand: 'TEIN',
+      image: '/images/productpics/tein-removebg-preview.png',
       description: 'Premium lowering springs for improved stance and handling'
     },
     {
@@ -26,60 +30,97 @@ export const getStaticProducts = () => {
       originalPrice: 90567,
       category: 'Suspension',
       brand: 'BC Racing',
+      image: '/images/productpics/ZR-Coilover-removebg-preview.png',
       description: 'Adjustable coilover suspension system'
     },
     {
       id: 4,
-      name: 'Rota Wheels JKR 18x9.5',
+      name: 'Rota Wheels Grid Off-Road',
       price: 45000,
       originalPrice: 75000,
       category: 'Wheels',
       brand: 'ROTA',
+      image: '/images/productpics/gridoffroad_1.png',
       description: 'Lightweight racing wheels with aggressive styling'
     },
     {
       id: 5,
-      name: 'Spoon Sports Brake Pads',
-      price: 8500,
-      originalPrice: 14167,
-      category: 'Braking System',
-      brand: 'Spoon Sports',
-      description: 'High-performance brake pads for track use'
+      name: 'Air Suspension System',
+      price: 85000,
+      originalPrice: 120000,
+      category: 'Suspension',
+      brand: 'Universal',
+      image: '/images/productpics/airsus-removebg-preview.png',
+      description: 'Complete air suspension kit for adjustable ride height'
     },
     {
       id: 6,
-      name: 'Mugen Air Intake',
+      name: 'MOMO Monte Carlo Steering Wheel',
       price: 15600,
       originalPrice: 26000,
-      category: 'Engine Parts',
-      brand: 'Mugen',
-      description: 'Cold air intake system for improved airflow'
+      category: 'Interior',
+      brand: 'MOMO',
+      image: '/images/productpics/momo-pontecarlo-removebg-preview.png',
+      description: 'Classic leather steering wheel with vintage appeal'
     },
     {
       id: 7,
+      name: 'MOMO Racing Steering Wheel',
+      price: 18500,
+      originalPrice: 28000,
+      category: 'Interior',
+      brand: 'MOMO',
+      image: '/images/productpics/momo.png',
+      description: 'Professional racing steering wheel for track use'
+    },
+    {
+      id: 8,
+      name: 'Torque Performance Exhaust',
+      price: 12500,
+      originalPrice: 18750,
+      category: 'Exhaust System',
+      brand: 'Torque',
+      image: '/images/productpics/torque-removebg-preview.png',
+      description: 'High-flow performance exhaust system'
+    },
+    {
+      id: 9,
+      name: 'IKR Racing Components',
+      price: 8500,
+      originalPrice: 14000,
+      category: 'Engine Parts',
+      brand: 'IKR',
+      image: '/images/productpics/ikr-removebg-preview.png',
+      description: 'High-performance engine components and accessories'
+    },
+    {
+      id: 10,
       name: 'Work Emotion CR Wheels',
       price: 52000,
       originalPrice: 65000,
       category: 'Wheels',
       brand: 'WORK',
+      image: 'https://via.placeholder.com/400x300/1f2937/ef4444?text=WORK+Wheels',
       description: 'Premium forged wheels with classic 6-spoke design'
     },
     {
-      id: 8,
+      id: 11,
       name: 'Tomei Expreme Ti Catback Exhaust',
       price: 35000,
       originalPrice: 42000,
       category: 'Exhaust System',
       brand: 'Tomei',
+      image: 'https://via.placeholder.com/400x300/1f2937/ef4444?text=Tomei+Exhaust',
       description: 'Titanium catback exhaust system for maximum performance'
     },
     {
-      id: 9,
+      id: 12,
       name: 'Cusco Strut Tower Brace',
       price: 8900,
       originalPrice: 12000,
       category: 'Suspension',
       brand: 'Cusco',
+      image: 'https://via.placeholder.com/400x300/1f2937/ef4444?text=Cusco+Brace',
       description: 'Front strut tower brace for improved chassis rigidity'
     },
     {
