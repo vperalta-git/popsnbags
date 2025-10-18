@@ -142,11 +142,18 @@ const ProductDetail = () => {
         <div className="lg:grid lg:grid-cols-2 lg:gap-12">
           {/* Product Image */}
           <div className="mb-6 lg:mb-0">
-            <div className="aspect-square bg-gradient-to-br from-red-600 to-red-800 rounded-lg flex items-center justify-center relative overflow-hidden">
-              {/* Placeholder for product image */}
-              <div className="w-full h-full flex items-center justify-center">
-                <span className="text-white text-lg font-medium">Product Image</span>
-              </div>
+            <div className="aspect-square bg-gradient-to-br from-red-600 to-red-800 rounded-lg overflow-hidden relative">
+              {product.image ? (
+                <img 
+                  src={product.image} 
+                  alt={product.name}
+                  className="w-full h-full object-contain p-8"
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center">
+                  <span className="text-white text-lg font-medium">Product Image</span>
+                </div>
+              )}
             </div>
           </div>
 
