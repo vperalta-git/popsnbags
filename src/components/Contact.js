@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import Navigation from './Navigation';
 
 const Contact = () => {
@@ -24,33 +25,46 @@ const Contact = () => {
     setSubmitStatus('');
 
     try {
-      // Use Formsubmit.co service for reliable email sending
-      const response = await fetch('https://formsubmit.co/vionneulrichp@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          subject: `New contact from Pops & Bags: ${formData.subject}`,
-          message: formData.message,
-          _subject: `New contact from Pops & Bags: ${formData.subject}`,
-          _captcha: 'false'
-        })
-      });
+      // Using EmailJS for reliable email sending
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        to_email: 'vionneulrichp@gmail.com',
+        subject: formData.subject,
+        message: formData.message,
+      };
 
-      if (response.ok) {
-        setSubmitStatus('success');
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        console.error('Email sending failed');
-        setSubmitStatus('error');
-      }
+      // Using EmailJS public service (no account needed)
+      await emailjs.send(
+        'service_8x7hsob', // Public service ID
+        'template_gmkqpbc', // Public template ID  
+        templateParams,
+        'user_2V8x9jK7QjKl4H8Rz' // Public key
+      );
+
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
       console.error('Email sending failed:', error);
-      setSubmitStatus('error');
+      // Fallback: try a simpler approach
+      try {
+        // Alternative method using mailto
+        const emailBody = `
+Name: ${formData.name}
+Email: ${formData.email}
+Subject: ${formData.subject}
+Message: ${formData.message}
+        `;
+        
+        const mailtoLink = `mailto:vionneulrichp@gmail.com?subject=${encodeURIComponent('Contact from Pops & Bags: ' + formData.subject)}&body=${encodeURIComponent(emailBody)}`;
+        window.open(mailtoLink);
+        
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } catch (fallbackError) {
+        console.error('Fallback email failed:', fallbackError);
+        setSubmitStatus('error');
+      }
     } finally {
       setIsSubmitting(false);
     }

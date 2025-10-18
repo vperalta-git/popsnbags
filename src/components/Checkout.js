@@ -1,9 +1,10 @@
-import React, { useState, useContext } from 'react';
-import { CartContext } from '../context/CartContext';
+import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
+import { useCart } from '../context/CartContext';
 import Navigation from './Navigation';
 
 const Checkout = () => {
-  const { cartItems, cartTotal, clearCart, discount } = useContext(CartContext);
+  const { cartItems, cartTotal, clearCart, discount } = useCart();
   const [customerInfo, setCustomerInfo] = useState({
     firstName: '',
     lastName: '',
@@ -38,19 +39,9 @@ const Checkout = () => {
     // Simulate order processing
     await new Promise(resolve => setTimeout(resolve, 2000));
 
-    // Send order confirmation email using Formsubmit.co
+    // Send order confirmation email using EmailJS
     try {
-      await fetch('https://formsubmit.co/vionneulrichp@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: `${customerInfo.firstName} ${customerInfo.lastName}`,
-          email: customerInfo.email,
-          subject: `Order Confirmation - ${orderNum}`,
-          message: `
+      const orderMessage = `
 Order Details:
 Order Number: ${orderNum}
 Customer: ${customerInfo.firstName} ${customerInfo.lastName}
@@ -68,11 +59,22 @@ Total: ₱${(cartTotal * (1 - discount)).toLocaleString()}
 Payment Method: ${paymentMethod === 'cod' ? 'Cash on Delivery' : paymentMethod}
 
 ${orderNotes ? `Order Notes: ${orderNotes}` : ''}
-          `,
-          _subject: `Order Confirmation - ${orderNum}`,
-          _captcha: 'false'
-        })
-      });
+      `;
+
+      const templateParams = {
+        from_name: `${customerInfo.firstName} ${customerInfo.lastName}`,
+        from_email: customerInfo.email,
+        to_email: 'vionneulrichp@gmail.com',
+        subject: `Order Confirmation - ${orderNum}`,
+        message: orderMessage,
+      };
+
+      await emailjs.send(
+        'service_8x7hsob',
+        'template_gmkqpbc',
+        templateParams,
+        'user_2V8x9jK7QjKl4H8Rz'
+      );
     } catch (error) {
       console.error('Failed to send order email:', error);
     }
