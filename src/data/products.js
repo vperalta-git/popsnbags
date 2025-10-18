@@ -1,5 +1,4 @@
 // Shared product data for the entire application
-import { getProductImage } from './productImages';
 
 export const getStaticProducts = () => {
   return [
