@@ -13,51 +13,43 @@ const Products = () => {
   const [filterType, setFilterType] = useState('brands'); // 'brands' or 'categories'
   const { addToCart } = useCart();
 
-  // In a real app, this would be your PHP backend URL
-  const API_BASE_URL = 'http://localhost/api'; // Adjust this to your PHP server
-
   const fetchProducts = useCallback(async () => {
     try {
       setLoading(true);
-      let url = `${API_BASE_URL}/products.php`;
-      
-      const response = await fetch(url);
-      const data = await response.json();
-      
-      if (data.success) {
-        setProducts(data.data);
-      } else {
-        console.error('Failed to fetch products:', data.message);
-        // Fallback to static data if API fails
-        setProducts(getProductsData());
-      }
+      // For now, always use static data with our real product images
+      console.log('Loading static products data...');
+      setProducts(getProductsData());
     } catch (error) {
-      console.error('Error fetching products:', error);
-      // Fallback to static data if API fails
+      console.error('Error loading products:', error);
       setProducts(getProductsData());
     } finally {
       setLoading(false);
     }
-  }, [API_BASE_URL]);
+  }, []);
 
   const filterProducts = useCallback(() => {
-    console.log('Filtering products:', { 
-      totalProducts: products.length, 
-      selectedCategory, 
-      searchTerm,
-      filterType,
-      productBrands: products.map(p => p.brand)
-    });
+    console.log('=== FILTERING DEBUG ===');
+    console.log('Filter Type:', filterType);
+    console.log('Selected Category:', selectedCategory);
+    console.log('Total products:', products.length);
+    console.log('Search Term:', searchTerm);
     
     let filtered = products;
 
     // Filter by brand or category based on filterType
     if (selectedCategory !== 'all') {
+      console.log('Applying filter for:', selectedCategory);
       if (filterType === 'brands') {
-        filtered = filtered.filter(product => 
-          product.brand && product.brand.toLowerCase() === selectedCategory.toLowerCase()
-        );
+        console.log('Filtering by brand...');
+        filtered = filtered.filter(product => {
+          const matches = product.brand && product.brand.toLowerCase() === selectedCategory.toLowerCase();
+          if (matches) {
+            console.log('✓ Product matches:', product.name, 'Brand:', product.brand);
+          }
+          return matches;
+        });
       } else {
+        console.log('Filtering by category...');
         filtered = filtered.filter(product => 
           product.category && product.category.toLowerCase() === selectedCategory.toLowerCase()
         );
@@ -76,6 +68,8 @@ const Products = () => {
     }
 
     console.log('Final filtered products:', filtered.length);
+    console.log('Filtered product names:', filtered.map(p => p.name));
+    console.log('===================');
     setFilteredProducts(filtered);
   }, [products, selectedCategory, searchTerm, filterType]);
 

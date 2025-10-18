@@ -172,8 +172,8 @@ export const getStaticProducts = () => {
       originalPrice: 48000,
       category: 'Wheels',
       brand: 'ROTA',
-      image: '/images/productpics/rotagrid2-removebg-preview.png',
-      description: 'Size: 18x9.5, Offset (ET): +20, PCD: 5x114.3, Color: Hyper Silver. Built for performance and stance, the Grid Drift combines a deep concave face with durable flow-formed construction. Perfect for RWD cars and widebody builds.',
+      image: 'images/productpics/xlarge-grid188.5hblack.jpg',
+      description: 'Size: 18x9.5, Offset (ET): +20, PCD: 5x114.3, Color: Hyper Black. Built for performance and stance, the Grid Drift combines a deep concave face with durable flow-formed construction. Perfect for RWD cars and widebody builds.',
       specifications: 'Set of 4 wheels'
     },
     {
