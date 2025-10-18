@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer, useEffect } from 'react';
 
 const CartContext = createContext();
 
@@ -81,8 +81,30 @@ const initialState = {
   promoCode: null
 };
 
+// Load cart state from localStorage
+const loadCartFromStorage = () => {
+  try {
+    const savedCart = localStorage.getItem('popsnbags-cart');
+    if (savedCart) {
+      return JSON.parse(savedCart);
+    }
+  } catch (error) {
+    console.error('Error loading cart from localStorage:', error);
+  }
+  return initialState;
+};
+
 export const CartProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(cartReducer, initialState);
+  const [state, dispatch] = useReducer(cartReducer, loadCartFromStorage());
+
+  // Save cart state to localStorage whenever it changes
+  useEffect(() => {
+    try {
+      localStorage.setItem('popsnbags-cart', JSON.stringify(state));
+    } catch (error) {
+      console.error('Error saving cart to localStorage:', error);
+    }
+  }, [state]);
 
   const addToCart = (product) => {
     dispatch({ type: 'ADD_TO_CART', payload: product });
