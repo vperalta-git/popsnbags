@@ -68,9 +68,9 @@ const Products = () => {
     // Filter by search term
     if (searchTerm) {
       filtered = filtered.filter(product =>
-        product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        product.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        product.brand.toLowerCase().includes(searchTerm.toLowerCase())
+        (product.name && product.name.toLowerCase().includes(searchTerm.toLowerCase())) ||
+        (product.description && product.description.toLowerCase().includes(searchTerm.toLowerCase())) ||
+        (product.brand && product.brand.toLowerCase().includes(searchTerm.toLowerCase()))
       );
       console.log('After search filtering:', filtered.length, 'products for term:', searchTerm);
     }

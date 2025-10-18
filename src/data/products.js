@@ -35,13 +35,14 @@ export const getStaticProducts = () => {
     },
     {
       id: 4,
-      name: 'Rota Wheels Grid Off-Road',
-      price: 45000,
-      originalPrice: 75000,
+      name: 'ROTA Grid 2 Wheels',
+      price: 32000,
+      originalPrice: 45000,
       category: 'Wheels',
       brand: 'ROTA',
-      image: '/images/productpics/gridoffroad_1.png',
-      description: 'Lightweight racing wheels with aggressive styling'
+      image: '/images/productpics/rota-grid2.png',
+      description: 'Size: 17x8.0, Offset (ET): +35, PCD: 5x114.3, Color: Gunmetal Gray. One of Rota\'s most iconic designs, the Grid 2 delivers the perfect balance between aggressive looks and track-ready performance. Ideal for JDM builds and street setups.',
+      specifications: 'Set of 4 wheels'
     },
     {
       id: 5,
