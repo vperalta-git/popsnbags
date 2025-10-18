@@ -17,50 +17,48 @@ const ProductDetail = () => {
   const API_BASE_URL = 'http://localhost/api';
 
   useEffect(() => {
-    fetchProduct();
-  }, [id]);
-
-  const fetchProduct = async () => {
-    try {
-      setLoading(true);
-      const response = await fetch(`${API_BASE_URL}/products.php?id=${id}`);
-      const data = await response.json();
+    const getStaticProduct = () => {
+      const staticProducts = getStaticProducts();
+      const foundProduct = staticProducts.find(p => p.id === parseInt(id));
       
-      if (data.success && data.data.length > 0) {
-        setProduct(data.data[0]);
-      } else {
-        // Fallback to static product data
+      if (foundProduct) {
+        // Add specifications if not present
+        if (!foundProduct.specifications) {
+          foundProduct.specifications = generateSpecifications(foundProduct);
+        }
+        return foundProduct;
+      }
+      
+      // Return first product as fallback
+      const fallback = staticProducts[0];
+      if (!fallback.specifications) {
+        fallback.specifications = generateSpecifications(fallback);
+      }
+      return fallback;
+    };
+
+    const fetchProduct = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(`${API_BASE_URL}/products.php?id=${id}`);
+        const data = await response.json();
+        
+        if (data.success && data.data.length > 0) {
+          setProduct(data.data[0]);
+        } else {
+          // Fallback to static product data
+          setProduct(getStaticProduct());
+        }
+      } catch (error) {
+        console.error('Error fetching product:', error);
         setProduct(getStaticProduct());
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.error('Error fetching product:', error);
-      setProduct(getStaticProduct());
-    } finally {
-      setLoading(false);
-    }
-  };
+    };
 
-  const getStaticProduct = () => {
-    const staticProducts = getStaticProducts();
-    const foundProduct = staticProducts.find(p => p.id === parseInt(id));
-    
-    if (foundProduct) {
-      // Add specifications if not present
-      if (!foundProduct.specifications) {
-        foundProduct.specifications = generateSpecifications(foundProduct);
-      }
-      return foundProduct;
-    }
-    
-    // Return first product as fallback
-    const fallback = staticProducts[0];
-    if (!fallback.specifications) {
-      fallback.specifications = generateSpecifications(fallback);
-    }
-    return fallback;
-  };
-
-  const formatPrice = (price) => {
+    fetchProduct();
+  }, [id]);  const formatPrice = (price) => {
     if (typeof price === 'number') {
       return `₱${price.toLocaleString()}`;
     }
@@ -194,12 +192,19 @@ const ProductDetail = () => {
                 </div>
               ) : (
                 <div className="space-y-3">
-                  {Object.entries(product.specifications).map(([key, value]) => (
-                    <div key={key} className="flex justify-between border-b border-gray-700 pb-2">
-                      <span className="text-gray-400 text-sm">{key}</span>
-                      <span className="text-white text-sm font-medium">{value}</span>
-                    </div>
-                  ))}
+                  {product.specifications && typeof product.specifications === 'object' 
+                    ? Object.entries(product.specifications).map(([key, value]) => (
+                        <div key={key} className="flex justify-between border-b border-gray-700 pb-2">
+                          <span className="text-gray-400 text-sm">{key}</span>
+                          <span className="text-white text-sm font-medium">{value}</span>
+                        </div>
+                      ))
+                    : (
+                        <div className="text-gray-300 text-sm">
+                          {product.specifications || 'No specifications available'}
+                        </div>
+                      )
+                  }
                 </div>
               )}
             </div>
@@ -213,12 +218,19 @@ const ProductDetail = () => {
               <div>
                 <h3 className="text-xl font-semibold mb-3">Specifications</h3>
                 <div className="space-y-3">
-                  {Object.entries(product.specifications).map(([key, value]) => (
-                    <div key={key} className="flex justify-between border-b border-gray-700 pb-2">
-                      <span className="text-gray-400">{key}</span>
-                      <span className="text-white font-medium">{value}</span>
-                    </div>
-                  ))}
+                  {product.specifications && typeof product.specifications === 'object' 
+                    ? Object.entries(product.specifications).map(([key, value]) => (
+                        <div key={key} className="flex justify-between border-b border-gray-700 pb-2">
+                          <span className="text-gray-400">{key}</span>
+                          <span className="text-white font-medium">{value}</span>
+                        </div>
+                      ))
+                    : (
+                        <div className="text-gray-300">
+                          {product.specifications || 'No specifications available'}
+                        </div>
+                      )
+                  }
                 </div>
               </div>
             </div>
