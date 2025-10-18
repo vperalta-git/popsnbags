@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import emailjs from '@emailjs/browser';
 import { useCart } from '../context/CartContext';
 import Navigation from './Navigation';
 
@@ -39,7 +38,7 @@ const Checkout = () => {
     // Simulate order processing
     await new Promise(resolve => setTimeout(resolve, 2000));
 
-    // Send order confirmation email using EmailJS
+    // Send order confirmation email using FormSubmit.co
     try {
       const orderMessage = `
 Order Details:
@@ -61,20 +60,19 @@ Payment Method: ${paymentMethod === 'cod' ? 'Cash on Delivery' : paymentMethod}
 ${orderNotes ? `Order Notes: ${orderNotes}` : ''}
       `;
 
-      const templateParams = {
-        from_name: `${customerInfo.firstName} ${customerInfo.lastName}`,
-        from_email: customerInfo.email,
-        to_email: process.env.REACT_APP_CONTACT_EMAIL || 'vionneulrichp@gmail.com',
-        subject: `Order Confirmation - ${orderNum}`,
-        message: orderMessage,
-      };
+      const formData_submit = new FormData();
+      formData_submit.append('name', `${customerInfo.firstName} ${customerInfo.lastName}`);
+      formData_submit.append('email', customerInfo.email);
+      formData_submit.append('subject', `New Order Confirmation - ${orderNum}`);
+      formData_submit.append('message', orderMessage);
+      formData_submit.append('_next', window.location.href);
+      formData_submit.append('_captcha', 'false');
+      formData_submit.append('_template', 'table');
 
-      await emailjs.send(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID || 'service_8x7hsob',
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID || 'template_gmkqpbc',
-        templateParams,
-        process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'user_2V8x9jK7QjKl4H8Rz'
-      );
+      await fetch('https://formsubmit.co/vionneulrichp@gmail.com', {
+        method: 'POST',
+        body: formData_submit
+      });
     } catch (error) {
       console.error('Failed to send order email:', error);
     }
