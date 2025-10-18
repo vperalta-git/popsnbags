@@ -38,12 +38,13 @@ const Checkout = () => {
     // Simulate order processing
     await new Promise(resolve => setTimeout(resolve, 2000));
 
-    // Send order confirmation email (using the same email endpoint)
+    // Send order confirmation email using Formsubmit.co
     try {
-      await fetch('/send-email.php', {
+      await fetch('https://formsubmit.co/vionneulrichp@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
         body: JSON.stringify({
           name: `${customerInfo.firstName} ${customerInfo.lastName}`,
@@ -67,7 +68,9 @@ Total: ₱${(cartTotal * (1 - discount)).toLocaleString()}
 Payment Method: ${paymentMethod === 'cod' ? 'Cash on Delivery' : paymentMethod}
 
 ${orderNotes ? `Order Notes: ${orderNotes}` : ''}
-          `
+          `,
+          _subject: `Order Confirmation - ${orderNum}`,
+          _captcha: 'false'
         })
       });
     } catch (error) {

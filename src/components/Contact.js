@@ -24,27 +24,28 @@ const Contact = () => {
     setSubmitStatus('');
 
     try {
-      // Send email using our PHP backend
-      const response = await fetch('/send-email.php', {
+      // Use Formsubmit.co service for reliable email sending
+      const response = await fetch('https://formsubmit.co/vionneulrichp@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          subject: formData.subject,
-          message: formData.message
+          subject: `New contact from Pops & Bags: ${formData.subject}`,
+          message: formData.message,
+          _subject: `New contact from Pops & Bags: ${formData.subject}`,
+          _captcha: 'false'
         })
       });
 
-      const result = await response.json();
-
-      if (response.ok && result.success) {
+      if (response.ok) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
-        console.error('Email sending failed:', result.error);
+        console.error('Email sending failed');
         setSubmitStatus('error');
       }
     } catch (error) {

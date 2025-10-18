@@ -1,13 +1,8 @@
 {
-  "functions": {
-    "public/*.php": {
-      "runtime": "vercel-php@0.6.0"
-    }
-  },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/send-email.php",
-      "dest": "/public/send-email.php"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
