@@ -166,6 +166,7 @@ export const CartProvider = ({ children }) => {
 
   const value = {
     items: state.items,
+    cartItems: state.items, // Add cartItems alias for backward compatibility
     promoCode: state.promoCode,
     addToCart,
     updateQuantity,
@@ -176,7 +177,9 @@ export const CartProvider = ({ children }) => {
     getCartTotal,
     getDiscountAmount,
     getFinalTotal,
-    getCartItemCount
+    getCartItemCount,
+    cartTotal: getCartTotal(), // Add cartTotal for easier access
+    discount: getDiscountAmount() / getCartTotal() // Add discount ratio
   };
 
   return (
