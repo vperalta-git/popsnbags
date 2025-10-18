@@ -40,7 +40,7 @@ export const getStaticProducts = () => {
       originalPrice: 45000,
       category: 'Wheels',
       brand: 'ROTA',
-      image: '/images/productpics/rota-grid2.png',
+      image: '/images/productpics/rotagrid2-removebg-preview.png',
       description: 'Size: 17x8.0, Offset (ET): +35, PCD: 5x114.3, Color: Gunmetal Gray. One of Rota\'s most iconic designs, the Grid 2 delivers the perfect balance between aggressive looks and track-ready performance. Ideal for JDM builds and street setups.',
       specifications: 'Set of 4 wheels'
     },
@@ -81,7 +81,7 @@ export const getStaticProducts = () => {
       originalPrice: 18750,
       category: 'Exhaust System',
       brand: 'Torque',
-      image: '/images/productpics/torque-removebg-preview.png',
+      image: '/images/productpics/torque-removebg-preview (1).png',
       description: 'High-flow performance exhaust system'
     },
     {
@@ -91,7 +91,7 @@ export const getStaticProducts = () => {
       originalPrice: 14000,
       category: 'Engine Parts',
       brand: 'IKR',
-      image: '/images/productpics/ikr-removebg-preview.png',
+      image: '/images/productpics/ikr.png',
       description: 'High-performance engine components and accessories'
     },
     {
@@ -105,13 +105,13 @@ export const getStaticProducts = () => {
       description: 'Premium forged wheels with classic 6-spoke design'
     },
     {
-      id: 11,
+      id: 10,
       name: 'Tomei Expreme Ti Catback Exhaust',
       price: 35000,
       originalPrice: 42000,
       category: 'Exhaust System',
       brand: 'Tomei',
-      image: 'https://via.placeholder.com/400x300/1f2937/ef4444?text=Tomei+Exhaust',
+      image: '/images/productpics/titann-removebg-preview.png',
       description: 'Titanium catback exhaust system for maximum performance'
     },
     {
@@ -135,11 +135,12 @@ export const getStaticProducts = () => {
     },
     {
       id: 11,
-      name: 'ROTA Grid 2',
-      price: 32000,
+      name: 'ROTA Boost',
+      price: 28500,
       category: 'Wheels',
       brand: 'ROTA',
-      description: 'Size: 17x8.0, Offset (ET): +35, PCD: 5x114.3, Color: Gunmetal Gray. One of Rota\'s most iconic designs, the Grid 2 delivers the perfect balance between aggressive looks and track-ready performance. Ideal for JDM builds and street setups.',
+      image: '/images/productpics/BOOST-removebg-preview.png',
+      description: 'Size: 16x7.0, Offset (ET): +40, PCD: 4x100, Color: Flat Black. Clean and simple design with a modern touch. Perfect for daily drivers and light modifications.',
       specifications: 'Set of 4 wheels'
     },
     {
@@ -148,6 +149,7 @@ export const getStaticProducts = () => {
       price: 37000,
       category: 'Wheels',
       brand: 'ROTA',
+      image: '/images/productpics/GTR-removebg-preview.png',
       description: 'Size: 18x8.5, Offset (ET): +45, PCD: 5x114.3, Color: Matte Bronze. The Rota Torque is known for its lightweight multi-spoke design and clean aesthetic. A favorite among Subaru and Evo owners.',
       specifications: 'Set of 4 wheels'
     },
@@ -157,6 +159,7 @@ export const getStaticProducts = () => {
       price: 27000,
       category: 'Wheels',
       brand: 'ROTA',
+      image: '/images/productpics/slipstream-removebg-preview.png',
       description: 'Size: 15x7.0, Offset (ET): +40, PCD: 4x100, Color: Flat Black. Compact and classic, the Slipstream remains a go-to choice for hatchbacks and compact cars. Perfect for both daily driving and weekend runs.',
       specifications: 'Set of 4 wheels'
     },
@@ -166,6 +169,7 @@ export const getStaticProducts = () => {
       price: 39500,
       category: 'Wheels',
       brand: 'ROTA',
+      image: '/images/productpics/rotagrid2-removebg-preview.png',
       description: 'Size: 18x9.5, Offset (ET): +20, PCD: 5x114.3, Color: Hyper Silver. Built for performance and stance, the Grid Drift combines a deep concave face with durable flow-formed construction. Perfect for RWD cars and widebody builds.',
       specifications: 'Set of 4 wheels'
     },
@@ -175,6 +179,7 @@ export const getStaticProducts = () => {
       price: 33500,
       category: 'Wheels',
       brand: 'ROTA',
+      image: '/images/productpics/FIGHTER10-removebg-preview.png',
       description: 'Size: 17x9.0, Offset (ET): +25, PCD: 5x100, Color: Gloss White. A fan-favorite among rally-inspired setups, the Fighter 10 brings timeless motorsport style. Strong, reliable, and lightweight.',
       specifications: 'Set of 4 wheels'
     },
@@ -184,6 +189,7 @@ export const getStaticProducts = () => {
       price: 29000,
       category: 'Wheels',
       brand: 'ROTA',
+      image: '/images/productpics/D154-removebg-preview.png',
       description: 'Size: 16x8.0, Offset (ET): +20, PCD: 4x100, Color: Matte Gunmetal with Polished Lip. With its classic five-spoke design and polished lip, the D154 is perfect for both retro and modern builds.',
       specifications: 'Set of 4 wheels'
     },
@@ -193,6 +199,7 @@ export const getStaticProducts = () => {
       price: 36500,
       category: 'Wheels',
       brand: 'ROTA',
+      image: '/images/productpics/MXR-removebg-preview.png',
       description: 'Size: 18x9.0, Offset (ET): +35, PCD: 5x114.3, Color: Satin Black. The MXR offers a modern mesh design inspired by European tuning culture. Perfect for cars that blend performance and show-quality looks.',
       specifications: 'Set of 4 wheels'
     },
