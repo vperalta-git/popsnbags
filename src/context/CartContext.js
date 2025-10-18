@@ -83,6 +83,11 @@ const initialState = {
 
 // Load cart state from localStorage
 const loadCartFromStorage = () => {
+  // Check if we're in the browser (not SSR)
+  if (typeof window === 'undefined') {
+    return initialState;
+  }
+  
   try {
     const savedCart = localStorage.getItem('popsnbags-cart');
     if (savedCart) {
@@ -99,6 +104,11 @@ export const CartProvider = ({ children }) => {
 
   // Save cart state to localStorage whenever it changes
   useEffect(() => {
+    // Check if we're in the browser (not SSR)
+    if (typeof window === 'undefined') {
+      return;
+    }
+    
     try {
       localStorage.setItem('popsnbags-cart', JSON.stringify(state));
     } catch (error) {
@@ -179,7 +189,9 @@ export const CartProvider = ({ children }) => {
 export const useCart = () => {
   const context = useContext(CartContext);
   if (!context) {
-    throw new Error('useCart must be used within a CartProvider');
+    // Don't throw error immediately, return null to let components handle it
+    console.warn('useCart must be used within a CartProvider');
+    return null;
   }
   return context;
 };

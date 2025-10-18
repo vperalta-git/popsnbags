@@ -3,7 +3,7 @@ import { useCart } from '../context/CartContext';
 import Navigation from './Navigation';
 
 const Checkout = () => {
-  const { cartItems, cartTotal, clearCart, discount } = useCart();
+  const cartContext = useCart();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -13,6 +13,14 @@ const Checkout = () => {
     }, 100);
     return () => clearTimeout(timer);
   }, []);
+
+  // Destructure with defaults to handle undefined context
+  const { 
+    cartItems = [], 
+    cartTotal = 0, 
+    clearCart = () => {}, 
+    discount = 0 
+  } = cartContext || {};
   const [customerInfo, setCustomerInfo] = useState({
     firstName: '',
     lastName: '',
@@ -104,12 +112,20 @@ ${orderNotes ? `Order Notes: ${orderNotes}` : ''}
   }
 
   // Debug: Check if cart context is available
-  if (!cartItems) {
+  if (!cartContext) {
     return (
       <div className="min-h-screen bg-gray-900">
         <Navigation />
         <div className="flex items-center justify-center py-20">
-          <div className="text-white text-xl">Cart context not available. Please refresh the page.</div>
+          <div className="text-center">
+            <div className="text-white text-xl mb-4">Cart context not available. Please refresh the page.</div>
+            <button
+              onClick={() => window.location.reload()}
+              className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition duration-300"
+            >
+              Refresh Page
+            </button>
+          </div>
         </div>
       </div>
     );
