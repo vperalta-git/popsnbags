@@ -124,7 +124,7 @@ export const getStaticProducts = () => {
       description: 'Front strut tower brace for improved chassis rigidity'
     },
     {
-      id: 10,
+      id: 26,
       name: 'AEM Cold Air Intake',
       price: 12500,
       originalPrice: 16000,
@@ -144,7 +144,7 @@ export const getStaticProducts = () => {
       specifications: 'Set of 4 wheels'
     },
     {
-      id: 12,
+      id: 27,
       name: 'ROTA Torque',
       price: 37000,
       originalPrice: 45000,
