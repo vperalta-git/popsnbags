@@ -1,28 +1,57 @@
 # Pops & Bags - Car Parts Online Store
 
-A modern React.js car parts e-commerce website built with Tailwind CSS, featuring a comprehensive catalog of JDM and performance parts.
+A modern React.js car parts e-commerce website with premium glassmorphism design, featuring a comprehensive catalog of JDM and performance parts. **Now live at [popsnbags.vercel.app](https://popsnbags.vercel.app)**
 
 ## 🚗 Live Demo
 
-[View Live Site](https://your-vercel-deployment-url.vercel.app)
+**🌐 [View Live Site](https://popsnbags.vercel.app)**
 
 ## ✨ Features
 
-- **Modern Design**: Clean and responsive design with Tailwind CSS
-- **Comprehensive Catalog**: 73+ car parts including ROTA wheels, body kits, and performance parts
-- **Smart Filtering**: Toggle between brand-based and category-based filtering
-- **Shopping Cart**: Full cart functionality with promo codes and quantity management
-- **Contact Form**: Working PHP contact form with email integration
-- **Mobile Responsive**: Optimized for all device sizes
-- **Product Details**: Detailed specifications and descriptions for each product
+### **Core E-commerce**
+- **Complete Shopping System**: Full cart functionality with checkout and order processing
+- **Email Integration**: Automatic order confirmations via FormSubmit.co
+- **Product Catalog**: 73+ car parts including ROTA wheels, body kits, and performance parts
+- **Smart Filtering**: Brand and category-based filtering with real-time search
+- **Promo Codes**: Multiple discount codes (POPS40, BAGS30, NEWBIE20, balaqBAGS40)
+- **Product Details**: Individual product pages with specifications and pricing
+
+### **Premium UI/UX**
+- **Glassmorphism Design**: Modern translucent design elements with backdrop blur
+- **Advanced Animations**: Custom Tailwind animations (fade-in-up, float, glow, scale-in)
+- **Mobile Responsive**: Fully optimized for all device sizes
+- **Dark Theme**: Professional dark theme with red accent colors
+- **Interactive Elements**: Smooth hover effects and transitions
+
+### **Additional Pages**
+- **DIY Tutorials**: Educational content for car enthusiasts
+- **About Page**: Company information and mission
+- **Contact Page**: Multiple contact methods with working forms
+- **Flash Sale Section**: Special promotional content
 
 ## 🛠 Tech Stack
 
-- **Frontend**: React.js 18, Tailwind CSS 3, React Router DOM 6
-- **Backend**: PHP for email handling and API endpoints
-- **State Management**: React Context API
-- **Deployment**: Vercel with PHP runtime support
-- **Version Control**: Git & GitHub
+- **Frontend**: React.js 18, Tailwind CSS 3 (with custom animations), React Router DOM 6
+- **State Management**: React Context API with localStorage persistence
+- **Email Service**: FormSubmit.co for order confirmations and contact forms
+- **Deployment**: Vercel with automatic GitHub integration
+- **Styling**: Custom glassmorphism effects, backdrop blur, advanced gradients
+- **Version Control**: Git & GitHub with automated deployments
+
+## 🎯 Recent Updates & Fixes
+
+### **All Critical Issues Resolved** ✅
+- **Product Specifications**: Fixed table display showing proper key-value pairs
+- **Checkout System**: Resolved white screen issues and cart state persistence
+- **SSR Compatibility**: Fixed server-side rendering issues for Vercel deployment
+- **Cart Persistence**: Added localStorage integration for cart state preservation
+- **Property Alignment**: Fixed context property mismatches between components
+
+### **Performance & UX Improvements**
+- Enhanced error handling and debugging capabilities
+- Improved mobile responsiveness and loading states
+- Added defensive programming for production stability
+- Optimized for both development and production environments
 
 ## 🚀 Quick Start
 
@@ -97,22 +126,28 @@ The app is configured for deployment on Vercel with automatic builds from GitHub
 
 ## 📧 Contact & Email Configuration
 
-The contact form sends emails to: `vionneulrichp@gmail.com`
+**Email Integration**: Fully configured and working
+- **Order Confirmations**: Automatic emails sent to customers after purchase
+- **Contact Forms**: Direct messages sent to `vionneulrichp@gmail.com`
+- **Service**: FormSubmit.co (reliable, serverless email handling)
+- **Status**: ✅ **Live and operational**
 
-Email functionality is handled by `/public/send-email.php` with proper CORS configuration for deployment.
+## 🌐 Deployment Status
 
-## 🌐 Deployment
+**🟢 LIVE AND FULLY OPERATIONAL**
 
-This project is configured for deployment on Vercel:
+- **Production URL**: [https://popsnbags.vercel.app](https://popsnbags.vercel.app)
+- **Repository**: [https://github.com/vperalta-git/popsnbags](https://github.com/vperalta-git/popsnbags)
+- **Deployment Platform**: Vercel (with automatic GitHub integration)
+- **Last Updated**: October 18, 2025
+- **All Systems**: ✅ Operational
 
-1. **Push to GitHub**: The repository is ready for GitHub
-2. **Connect to Vercel**: Link your GitHub repository to Vercel
-3. **Automatic Deployment**: Vercel will automatically build and deploy on push
-
-### Vercel Configuration
-- React build output: `build/` directory
-- PHP runtime support for email functionality
-- Proper routing for SPA (Single Page Application)
+### Deployment Features
+- **Automatic Builds**: Deploys automatically on GitHub push
+- **CDN Distribution**: Global content delivery network
+- **SSL Certificate**: Secure HTTPS encryption
+- **Custom Domain Ready**: Can be configured with custom domain
+- **Performance Optimized**: Fast loading and caching strategies
 
 ## 🛠 Key Features
 
