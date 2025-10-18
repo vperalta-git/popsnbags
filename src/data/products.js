@@ -60,7 +60,7 @@ export const getStaticProducts = () => {
       originalPrice: 26000,
       category: 'Interior',
       brand: 'MOMO',
-      image: '/images/productpics/momo-pontecarlo-removebg-preview.png',
+      image: '/images/productpics/MOMO_Monte_Carlo_350mm__Black_Spokes_-removebg-preview.png',
       description: 'Classic leather steering wheel with vintage appeal'
     },
     {
@@ -70,7 +70,7 @@ export const getStaticProducts = () => {
       originalPrice: 28000,
       category: 'Interior',
       brand: 'MOMO',
-      image: '/images/productpics/momo.png',
+      image: 'public/images/productpics/momo-montecarlo-removebg-preview.png',
       description: 'Professional racing steering wheel for track use'
     },
     {
@@ -85,13 +85,13 @@ export const getStaticProducts = () => {
     },
     {
       id: 9,
-      name: 'IKR Racing Components',
+      name: 'Skunk2 Composite Cold Air Intake',
       price: 8500,
       originalPrice: 14000,
       category: 'Engine Parts',
-      brand: 'IKR',
+      brand: 'Skunk2',
       image: '/images/productpics/ikr.png',
-      description: 'High-performance engine components and accessories'
+      description: 'For 06-11 Honda Civic Si'
     },
     {
       id: 10,
@@ -100,7 +100,7 @@ export const getStaticProducts = () => {
       originalPrice: 65000,
       category: 'Wheels',
       brand: 'WORK',
-      image: 'https://via.placeholder.com/400x300/1f2937/ef4444?text=WORK+Wheels',
+      image: '/images/productpics/work-removebg-preview.png',
       description: 'Premium forged wheels with classic 6-spoke design'
     },
     {
@@ -120,7 +120,7 @@ export const getStaticProducts = () => {
       originalPrice: 12000,
       category: 'Suspension',
       brand: 'Cusco',
-      image: 'https://via.placeholder.com/400x300/1f2937/ef4444?text=Cusco+Brace',
+      image: '/images/productpics/Cusco_Strut_Tower_Brace-removebg-preview.png',
       description: 'Front strut tower brace for improved chassis rigidity'
     },
     {
@@ -130,6 +130,7 @@ export const getStaticProducts = () => {
       originalPrice: 16000,
       category: 'Engine Parts',
       brand: 'AEM',
+      image: '/images/productpics/AEM_Cold_Air_Intake-removebg-preview.png',
       description: 'Cold air intake system with heat shield'
     },
     {
@@ -216,6 +217,7 @@ export const getStaticProducts = () => {
       price: 17500,
       category: 'Steering Wheel',
       brand: 'MOMO',
+      image: 'public/images/productpics/MOMO_Prototipo_Black_Edition-removebg-preview.png',
       description: 'Classic 350mm leather wheel with white stitching'
     },
     {
@@ -224,6 +226,7 @@ export const getStaticProducts = () => {
       price: 18000,
       category: 'Steering Wheel',
       brand: 'MOMO',
+      image: '/images/productpics/MOMO_Drifting_Deep_Dish__Red_Stitch_-removebg-preview.png',
       description: '90mm deep dish suede wheel for drift setups'
     },
     {
@@ -232,6 +235,7 @@ export const getStaticProducts = () => {
       price: 16800,
       category: 'Steering Wheel',
       brand: 'MOMO',
+      image: '',
       description: 'Premium leather with strong grip feel'
     },
     // MUFFLERS
@@ -241,6 +245,7 @@ export const getStaticProducts = () => {
       price: 32000,
       category: 'Muffler',
       brand: 'HKS',
+      image: '/images/productpics/HKS_Hi-Power_Exhaust-removebg-preview.png',
       description: 'Stainless steel with angled tip, aggressive tone'
     },
     {
@@ -249,6 +254,7 @@ export const getStaticProducts = () => {
       price: 34500,
       category: 'Muffler',
       brand: 'Greddy',
+      image: '/images/productpics/Greddy_Spectrum_Elite_Catback-removebg-preview.png',
       description: 'Deep tone and high flow, perfect for turbo cars'
     },
     {
@@ -257,6 +263,7 @@ export const getStaticProducts = () => {
       price: 56000,
       category: 'Muffler',
       brand: 'Tomei',
+      image: '',
       description: 'Ultra-lightweight titanium with race sound'
     },
     {
@@ -265,6 +272,7 @@ export const getStaticProducts = () => {
       price: 29500,
       category: 'Muffler',
       brand: 'Blitz',
+      image: '/images/productpics/Blitz_Nur-Spec_R-removebg-preview.png',
       description: 'Mirror-finish canister, clean deep tone'
     },
     {
@@ -273,6 +281,7 @@ export const getStaticProducts = () => {
       price: 41000,
       category: 'Muffler',
       brand: 'Fujitsubo',
+      image: '/images/productpics/Fujitsubo_Legalis_R-removebg-preview.png',
       description: 'JDM legal street exhaust with smooth tone'
     },
     {
@@ -281,6 +290,7 @@ export const getStaticProducts = () => {
       price: 22000,
       category: 'Muffler',
       brand: 'Magnaflow',
+      image: '',
       description: 'American stainless steel muffler with mellow bass tone'
     },
     {
@@ -289,6 +299,7 @@ export const getStaticProducts = () => {
       price: 35000,
       category: 'Muffler',
       brand: 'APEXi',
+      image: '',
       description: 'Track-grade flow and signature angled design'
     },
     {
@@ -297,6 +308,7 @@ export const getStaticProducts = () => {
       price: 37000,
       category: 'Muffler',
       brand: 'Invidia',
+      image: '',
       description: 'Polished stainless catback with moderate sound'
     },
     {
@@ -305,6 +317,7 @@ export const getStaticProducts = () => {
       price: 42500,
       category: 'Muffler',
       brand: 'Spoon',
+      image: '/images/productpics/Spoon_N1_Muffler-removebg-preview.png',
       description: 'Lightweight racing muffler tuned for Honda engines'
     },
     {
@@ -313,6 +326,7 @@ export const getStaticProducts = () => {
       price: 39000,
       category: 'Muffler',
       brand: 'Mugen',
+      image: '/images/productpics/Mugen_Power_Exhaust-removebg-preview.png',
       description: 'Factory fit with sporty yet refined tone'
     },
     {
@@ -321,6 +335,7 @@ export const getStaticProducts = () => {
       price: 33000,
       category: 'Muffler',
       brand: 'Tanabe',
+      image: '',
       description: 'Compact, JASMA-approved street muffler'
     },
     {
@@ -329,6 +344,7 @@ export const getStaticProducts = () => {
       price: 30000,
       category: 'Muffler',
       brand: 'Borla',
+      image: '/images/productpics/Borla_S-Type-removebg-preview.png',
       description: 'Aggressive American sound with high-quality build'
     },
     // LOWERING SPRINGS
@@ -338,6 +354,7 @@ export const getStaticProducts = () => {
       price: 15500,
       category: 'Lowering Springs',
       brand: 'TEIN',
+      image: '',
       description: '1.5-inch drop with comfort and performance'
     },
     {
@@ -346,6 +363,7 @@ export const getStaticProducts = () => {
       price: 16800,
       category: 'Lowering Springs',
       brand: 'Eibach',
+      image: '',
       description: 'Progressive rate for balanced ride'
     },
     {
@@ -354,14 +372,16 @@ export const getStaticProducts = () => {
       price: 17500,
       category: 'Lowering Springs',
       brand: 'H&R',
+      image: '',
       description: '1.8-inch drop for sporty stance'
     },
     {
       id: 36,
-      name: 'BC Racing Lowering Springs',
+      name: 'BC Racing ASP Series Lowering Springs',
       price: 19000,
       category: 'Lowering Springs',
       brand: 'BC Racing',
+      image: '',
       description: 'Track-focused drop setup'
     },
     {
@@ -370,6 +390,7 @@ export const getStaticProducts = () => {
       price: 14500,
       category: 'Lowering Springs',
       brand: 'Tanabe',
+      image: '',
       description: 'Aggressive drop with daily comfort'
     },
     {
@@ -378,6 +399,7 @@ export const getStaticProducts = () => {
       price: 18000,
       category: 'Lowering Springs',
       brand: 'Cusco',
+      image: '',
       description: 'Enhanced cornering response'
     },
     {
@@ -386,6 +408,7 @@ export const getStaticProducts = () => {
       price: 17000,
       category: 'Lowering Springs',
       brand: 'Swift',
+      image: '',
       description: 'Lightweight material with high rebound'
     },
     {
@@ -394,6 +417,7 @@ export const getStaticProducts = () => {
       price: 16500,
       category: 'Lowering Springs',
       brand: 'RS-R',
+      image: '',
       description: 'JDM drop springs with smooth ride'
     },
     // SPOON PRODUCTS
@@ -401,8 +425,9 @@ export const getStaticProducts = () => {
       id: 41,
       name: 'Spoon Sports Carbon Side Mirrors',
       price: 28000,
-      category: 'Exterior',
+      category: 'Body Kit',
       brand: 'Spoon Sports',
+      image: '',
       description: 'Lightweight aerodynamic mirrors for Honda models'
     },
     {
@@ -411,6 +436,7 @@ export const getStaticProducts = () => {
       price: 19000,
       category: 'Suspension',
       brand: 'Spoon Sports',
+      image: '',
       description: 'Reinforces chassis rigidity for better handling'
     },
     // WORK WHEELS
@@ -418,16 +444,18 @@ export const getStaticProducts = () => {
       id: 43,
       name: 'Work Emotion CR Kai 18x9.5 +30 (Bronze)',
       price: 68000,
-      category: 'Wheel',
+      category: 'Wheels',
       brand: 'Work',
+      image: '',
       description: 'Iconic 5-spoke JDM wheel, forged strength'
     },
     {
       id: 44,
       name: 'Work Meister S1 3P 17x9 (Silver)',
       price: 85000,
-      category: 'Wheel',
+      category: 'Wheels',
       brand: 'Work',
+      image: '',
       description: 'Classic multi-piece wheel with polished lip'
     },
     // MUGEN PRODUCTS
@@ -437,7 +465,8 @@ export const getStaticProducts = () => {
       price: 21000,
       category: 'Body Kit',
       brand: 'Mugen',
-      description: 'Aerodynamic upgrade for Honda Civic'
+      image: '',
+      description: 'Aerodynamic upgrade for Honda Civic. 01-03 models'
     },
     {
       id: 46,
@@ -445,6 +474,7 @@ export const getStaticProducts = () => {
       price: 4500,
       category: 'Interior',
       brand: 'Mugen',
+      image: '',
       description: 'Lightweight aluminum knob with clean feel'
     },
     {
@@ -453,6 +483,7 @@ export const getStaticProducts = () => {
       price: 48000,
       category: 'Suspension',
       brand: 'Mugen',
+      image: '',
       description: 'Tuned for sporty yet balanced handling'
     },
     {
@@ -461,6 +492,7 @@ export const getStaticProducts = () => {
       price: 3000,
       category: 'Engine',
       brand: 'Mugen',
+      image: '',
       description: 'Increases cooling pressure capacity'
     },
     // TOMEI PRODUCT
@@ -470,6 +502,7 @@ export const getStaticProducts = () => {
       price: 59000,
       category: 'Engine',
       brand: 'Tomei',
+      image: '',
       description: 'Drop-in camshafts for high performance engines'
     },
     // OTHER PERFORMANCE / EXTERIOR PARTS
@@ -479,6 +512,7 @@ export const getStaticProducts = () => {
       price: 22000,
       category: 'Intake',
       brand: 'AEM',
+      image: '',
       description: 'Improves airflow and throttle response'
     },
     {
@@ -487,6 +521,7 @@ export const getStaticProducts = () => {
       price: 5500,
       category: 'Intake',
       brand: 'K&N',
+      image: '',
       description: 'Washable high-flow air filter'
     },
     {
@@ -495,6 +530,7 @@ export const getStaticProducts = () => {
       price: 98000,
       category: 'Brakes',
       brand: 'Brembo',
+      image: '',
       description: '4-piston big brake kit for improved stopping power'
     },
     {
@@ -503,6 +539,7 @@ export const getStaticProducts = () => {
       price: 14000,
       category: 'Suspension',
       brand: 'Cusco',
+      image: '',
       description: 'Reduces body roll and improves cornering'
     },
     {
@@ -511,6 +548,7 @@ export const getStaticProducts = () => {
       price: 23500,
       category: 'Drivetrain',
       brand: 'Exedy',
+      image: '',
       description: 'Reliable clutch upgrade for street/track'
     },
     {
@@ -519,6 +557,7 @@ export const getStaticProducts = () => {
       price: 16000,
       category: 'Turbo',
       brand: 'HKS',
+      image: '',
       description: 'Signature sharp sound and reliable boost control'
     },
     {
@@ -527,6 +566,7 @@ export const getStaticProducts = () => {
       price: 9000,
       category: 'Electronics',
       brand: 'Pivot',
+      image: '', 
       description: 'Adjust throttle response for sporty driving'
     },
     {
@@ -535,6 +575,7 @@ export const getStaticProducts = () => {
       price: 48000,
       category: 'Interior',
       brand: 'Bride',
+      image: '',
       description: 'Racing bucket seat for maximum support'
     },
     {
@@ -542,7 +583,8 @@ export const getStaticProducts = () => {
       name: 'Defi Advance BF Gauges Set',
       price: 38000,
       category: 'Gauges',
-      brand: 'Defi',
+      brand: 'Defi',  
+      image: '',
       description: 'Digital boost, oil, and water temp gauges'
     },
     // BODY KIT PRODUCTS
@@ -552,23 +594,26 @@ export const getStaticProducts = () => {
       price: 11800,
       category: 'Body Kit',
       brand: 'Toyota',
-      description: 'Clean and aggressive Thai-style front bumper upgrade for 2018–2022 Vios models, perfect fitment.'
+      image: '',
+      description: 'Clean and aggressive Thai-style front bumper upgrade for 2018–2022 Vios models, perfect fitment. (unpainted)'
     },
     {
       id: 60,
-      name: 'Toyota Vios Gen 3.5 Rear Diffuser (Thai Style)',
+      name: 'Toyota Vios Gen 3.5 Rear Diffuser (Thai Concept)',
       price: 6800,
       category: 'Body Kit',
       brand: 'Toyota',
+      image: '',
       description: 'Sleek, understated diffuser for a subtle OEM+ rear look, ABS plastic, unpainted.'
     },
     {
       id: 61,
-      name: 'Honda Civic FD Mugen RR Front Lip',
+      name: 'Honda Civic FD Mugen RR Front',
       price: 7200,
       category: 'Body Kit',
       brand: 'Mugen',
-      description: 'Polyurethane front lip with Mugen RR design, durable and paintable, fits 2006–2011 Civic FD.'
+      image: '',
+      description: 'Polyurethane front Mugen RR design, durable and paintable, fits 2006–2011 Civic FD.'
     },
     {
       id: 62,
@@ -576,30 +621,34 @@ export const getStaticProducts = () => {
       price: 18000,
       category: 'Body Kit',
       brand: 'Honda',
+      image: '',
       description: 'Lightweight carbon hood with UV coating and OEM latch compatibility for 1992–1995 Civics.'
     },
     {
       id: 63,
-      name: 'Honda Civic EK Carbon Fiber Hood (Type R Style)',
+      name: 'Honda Civic EK Carbon Fiber Hood',
       price: 19500,
       category: 'Body Kit',
       brand: 'Honda',
+      image: '',
       description: 'High-quality carbon weave with gloss finish, direct bolt-on fitment.'
     },
     {
       id: 64,
-      name: 'Toyota Corolla AE101 "Big Body" TRD Lip Kit',
+      name: 'Toyota Corolla AE101 World Class Bumper',
       price: 14000,
       category: 'Body Kit',
       brand: 'Toyota',
-      description: 'Classic TRD-inspired front, side, and rear lip kit, flexible polyurethane.'
+      image: '',
+      description: 'World Class Bumper (unpainted).'
     },
     {
       id: 65,
-      name: 'Toyota Corolla AE111 "Lovelife" Thai Facelift Bumper Set',
+      name: 'Toyota Corolla AE111 Euro 2 set',
       price: 17000,
       category: 'Body Kit',
       brand: 'Toyota',
+      image: '',
       description: 'Front and rear bumper conversion to the sporty Thai look, includes signal lights and grille.'
     },
     {
@@ -608,31 +657,35 @@ export const getStaticProducts = () => {
       price: 16000,
       category: 'Body Kit',
       brand: 'Toyota',
+      image: '',
       description: 'Lightweight carbon hood, smooth weave, perfect for restoration or show cars.'
     },
     {
       id: 67,
-      name: 'Toyota Corolla AE111 Ducktail Spoiler',
+      name: 'Toyota Corolla AE111 Ducktail Spoiler (Trueno)',
       price: 9000,
       category: 'Body Kit',
       brand: 'Toyota',
-      description: 'Subtle rear lip spoiler for Lovelife models, available in ABS or carbon finish.'
+      image: '',
+      description: 'Subtle rear lip spoiler for Trueno/Lovelife models, available in ABS or carbon finish.'
     },
     {
       id: 68,
-      name: 'Toyota Altis 10th Gen Modulo Body Kit',
+      name: 'Toyota Vios Gen 3 Clear Tails',
       price: 17500,
       category: 'Body Kit',
       brand: 'Toyota',
-      description: 'Complete front, side, and rear kit adds clean and modern OEM+ look.'
+      image: '',
+      description: 'Clear tail lights for Vios Gen 3'
     },
     {
       id: 69,
-      name: 'Honda Civic FD Carbon Ducktail Spoiler',
-      price: 10000,
+      name: 'Honda Civic FD Carbon Trunk',
+      price: 12000,
       category: 'Body Kit',
       brand: 'Honda',
-      description: 'Real carbon fiber ducktail, lightweight and stylish for subtle rear flair.'
+      image: '',
+      description: 'Real carbon fiber trunk, lightweight and stylish for subtle rear flair.'
     },
     {
       id: 70,
@@ -640,31 +693,35 @@ export const getStaticProducts = () => {
       price: 11000,
       category: 'Body Kit',
       brand: 'Toyota',
+      image: '',
       description: 'GR-inspired design, ABS material, bolt-on fit for 2020+ models.'
     },
     {
       id: 71,
-      name: 'Toyota Corolla AE101 GT Wing (Adjustable Aluminum)',
-      price: 8800,
+      name: 'Wiper Delete Honda Jazz',
+      price: 900,
       category: 'Body Kit',
-      brand: 'Toyota',
-      description: 'Classic tuner-style aluminum GT wing with adjustable brackets, universal fit.'
+      brand: 'Honda',
+      image: '',
+      description: 'Cleans up the rear end for a sleek look, lightweight and easy to install.'
     },
     {
       id: 72,
-      name: 'Honda City GM6 Carbon Fender Garnish Set',
+      name: 'Type R EK9 Gauge',
       price: 3500,
-      category: 'Body Kit',
+      category: 'Interior',
       brand: 'Honda',
-      description: 'Adds sporty detail to fenders, adhesive installation, carbon-look finish.'
+      image: '',
+      description: 'Brand New Type R EK9 Gauge.'
     },
     {
       id: 73,
-      name: 'Toyota Corolla AE111 "Lovelife" Side Skirt Pair (TRD Style)',
-      price: 7200,
+      name: 'Toyota Corolla AE101 grille',
+      price: 2400,
       category: 'Body Kit',
       brand: 'Toyota',
-      description: 'ABS material with OEM fitment, complements Thai facelift bumpers.'
+      image: '',
+      description: 'Toyota Corolla AE101 grille.'
     }
   ];
 };

@@ -9,6 +9,7 @@ A modern React.js car parts e-commerce website with premium glassmorphism design
 ## ✨ Features
 
 ### **Core E-commerce**
+
 - **Complete Shopping System**: Full cart functionality with checkout and order processing
 - **Email Integration**: Automatic order confirmations via FormSubmit.co
 - **Product Catalog**: 73+ car parts including ROTA wheels, body kits, and performance parts
@@ -17,6 +18,7 @@ A modern React.js car parts e-commerce website with premium glassmorphism design
 - **Product Details**: Individual product pages with specifications and pricing
 
 ### **Premium UI/UX**
+
 - **Glassmorphism Design**: Modern translucent design elements with backdrop blur
 - **Advanced Animations**: Custom Tailwind animations (fade-in-up, float, glow, scale-in)
 - **Mobile Responsive**: Fully optimized for all device sizes
@@ -24,6 +26,7 @@ A modern React.js car parts e-commerce website with premium glassmorphism design
 - **Interactive Elements**: Smooth hover effects and transitions
 
 ### **Additional Pages**
+
 - **DIY Tutorials**: Educational content for car enthusiasts
 - **About Page**: Company information and mission
 - **Contact Page**: Multiple contact methods with working forms
@@ -41,6 +44,7 @@ A modern React.js car parts e-commerce website with premium glassmorphism design
 ## 🎯 Recent Updates & Fixes
 
 ### **All Critical Issues Resolved** ✅
+
 - **Product Specifications**: Fixed table display showing proper key-value pairs
 - **Checkout System**: Resolved white screen issues and cart state persistence
 - **SSR Compatibility**: Fixed server-side rendering issues for Vercel deployment
@@ -48,6 +52,7 @@ A modern React.js car parts e-commerce website with premium glassmorphism design
 - **Property Alignment**: Fixed context property mismatches between components
 
 ### **Performance & UX Improvements**
+
 - Enhanced error handling and debugging capabilities
 - Improved mobile responsiveness and loading states
 - Added defensive programming for production stability
@@ -56,23 +61,27 @@ A modern React.js car parts e-commerce website with premium glassmorphism design
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 16+ 
+
+- Node.js 16+
 - npm or yarn
 
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/vperalta-git/popsnbags.git
 cd popsnbags
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Start the development server:
+
 ```bash
 npm start
 ```
@@ -108,6 +117,7 @@ public/
 ## 🛒 Available Scripts
 
 ### Development
+
 ```bash
 npm start          # Run development server
 npm test           # Run tests
@@ -115,6 +125,7 @@ npm run build      # Build for production
 ```
 
 ### Deployment
+
 The app is configured for deployment on Vercel with automatic builds from GitHub.
 
 ## 💰 Promo Codes
@@ -127,6 +138,7 @@ The app is configured for deployment on Vercel with automatic builds from GitHub
 ## 📧 Contact & Email Configuration
 
 **Email Integration**: Fully configured and working
+
 - **Order Confirmations**: Automatic emails sent to customers after purchase
 - **Contact Forms**: Direct messages sent to `vionneulrichp@gmail.com`
 - **Service**: FormSubmit.co (reliable, serverless email handling)
@@ -143,6 +155,7 @@ The app is configured for deployment on Vercel with automatic builds from GitHub
 - **All Systems**: ✅ Operational
 
 ### Deployment Features
+
 - **Automatic Builds**: Deploys automatically on GitHub push
 - **CDN Distribution**: Global content delivery network
 - **SSL Certificate**: Secure HTTPS encryption
@@ -152,23 +165,27 @@ The app is configured for deployment on Vercel with automatic builds from GitHub
 ## 🛠 Key Features
 
 ### Product Catalog
+
 - 73+ products across multiple categories
 - ROTA wheels collection
 - Body kits and performance parts
 - Detailed specifications for each product
 
 ### Smart Filtering System
+
 - Toggle between "Brands" and "Categories" view
 - Dynamic filter generation from product data
 - Real-time search functionality
 
 ### Shopping Cart
+
 - Add/remove items with quantity control
 - Apply promo codes with validation
 - Persistent cart state across navigation
 - Cart total calculations with discounts
 
 ### Email Integration
+
 - PHP-powered contact form
 - Proper email validation and sanitization
 - CORS-enabled for production deployment
@@ -188,6 +205,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 📞 Support
 
 For questions or support:
+
 - Use the contact form on the website
 - Email: vionneulrichp@gmail.com
 - Create an issue on GitHub
