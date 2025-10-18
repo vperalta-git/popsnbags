@@ -49,6 +49,12 @@ const Navigation = ({ showSearch = false, onSearchChange = null }) => {
                 Flash Sale
               </Link>
               <Link
+                to="/diy-tutorials"
+                className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              >
+                DIY Tutorials
+              </Link>
+              <Link
                 to="/about"
                 className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
@@ -152,6 +158,13 @@ const Navigation = ({ showSearch = false, onSearchChange = null }) => {
                 onClick={() => setIsOpen(false)}
               >
                 Flash Sale
+              </Link>
+              <Link
+                to="/diy-tutorials"
+                className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                DIY Tutorials
               </Link>
               <Link
                 to="/about"

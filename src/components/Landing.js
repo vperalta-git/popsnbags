@@ -17,7 +17,10 @@ const Landing = () => {
             <p className="text-xl md:text-2xl mb-8 text-red-100">
               Quality aftermarket parts that don't break the bank
             </p>
-            <button className="bg-white text-red-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition duration-300">
+            <button 
+              onClick={() => window.location.href = '/products?featured=true'}
+              className="bg-white text-red-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition duration-300"
+            >
               Start Your Build
             </button>
           </div>
