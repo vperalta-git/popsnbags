@@ -268,7 +268,7 @@ export const getStaticProducts = () => {
       description: 'Mirror-finish canister, clean deep tone'
     },
     {
-      id: 25,
+      id: 100,
       name: 'Fujitsubo Legalis R',
       price: 41000,
       category: 'Muffler',
@@ -276,7 +276,7 @@ export const getStaticProducts = () => {
       description: 'JDM legal street exhaust with smooth tone'
     },
     {
-      id: 26,
+      id: 101,
       name: 'Magnaflow Street Series',
       price: 22000,
       category: 'Muffler',
@@ -284,7 +284,7 @@ export const getStaticProducts = () => {
       description: 'American stainless steel muffler with mellow bass tone'
     },
     {
-      id: 27,
+      id: 102,
       name: 'APEXi N1 Evolution-R',
       price: 35000,
       category: 'Muffler',
