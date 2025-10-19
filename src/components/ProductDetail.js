@@ -70,11 +70,14 @@ const ProductDetail = () => {
     for (let i = 0; i < quantity; i++) {
       addToCart(product);
     }
+    console.log('Add to cart clicked, showing notification...');
     // Show notification
     setShowNotification(true);
+    console.log('showNotification set to:', true);
     // Hide notification after 3 seconds
     setTimeout(() => {
       setShowNotification(false);
+      console.log('Notification hidden after 3 seconds');
     }, 3000);
   };
 
@@ -299,18 +302,26 @@ const ProductDetail = () => {
         </div>
       </div>
 
+      {/* Debug info */}
+      {console.log('showNotification state:', showNotification)}
+
       {/* Add to Cart Notification */}
       {showNotification && (
-        <div className="fixed top-20 right-4 z-50 bg-green-600 text-white px-6 py-4 rounded-lg shadow-lg transform transition-all duration-300 ease-in-out opacity-100 translate-y-0">
+        <div 
+          className="fixed top-4 right-4 z-[9999] bg-green-600 text-white px-6 py-4 rounded-lg shadow-2xl border-2 border-white transform transition-all duration-500 ease-in-out animate-bounce"
+          style={{
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(34, 197, 94, 0.5)',
+          }}
+        >
           <div className="flex items-center space-x-3">
-            <div className="bg-green-500 rounded-full p-1">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-green-500 rounded-full p-2 animate-pulse">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
             <div>
-              <p className="font-semibold">Added to Cart!</p>
-              <p className="text-sm text-green-100">{quantity} x {product.name}</p>
+              <p className="font-bold text-lg">✅ Added to Cart!</p>
+              <p className="text-sm text-green-100 font-medium">{quantity} x {product?.name}</p>
             </div>
           </div>
         </div>
