@@ -52,10 +52,10 @@ const ShoppingCart = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-red-900 text-white">
-      {/* Navigation */}
+    
       <Navigation />
 
-      {/* Mobile Header */}
+  
       <header className="lg:hidden bg-white/5 backdrop-blur-lg border-b border-white/10 px-4 py-4">
         <div className="flex items-center justify-between">
           <button 
@@ -69,11 +69,10 @@ const ShoppingCart = () => {
           <h1 className="text-xl font-bold bg-gradient-to-r from-white to-red-100 bg-clip-text text-transparent">
             My Shopping Cart
           </h1>
-          <div className="w-8"></div> {/* Spacer for centering */}
+          <div className="w-8"></div>
         </div>
       </header>
 
-      {/* Desktop Page Title */}
       <div className="hidden lg:block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="text-center">
           <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-red-100 to-white bg-clip-text text-transparent mb-4">
@@ -83,12 +82,10 @@ const ShoppingCart = () => {
         </div>
       </div>
 
-      {/* Empty Cart Message */}
       {cartItems.length === 0 ? (
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 text-center">
           <div className="relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-8 sm:p-16 
                         shadow-2xl shadow-red-500/10 animate-fade-in-up">
-            {/* Background Effects */}
             <div className="absolute inset-0 bg-gradient-to-r from-red-600/10 to-red-800/10 rounded-3xl blur-xl"></div>
             
             <div className="relative">
@@ -126,10 +123,8 @@ const ShoppingCart = () => {
         </div>
       ) : (
 
-        /* Cart Content */
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
           <div className="lg:grid lg:grid-cols-3 lg:gap-8">
-            {/* Cart Items */}
             <div className="lg:col-span-2 space-y-6 mb-8 lg:mb-0">
               {cartItems.map((item, index) => (
                 <div key={item.id} 
@@ -138,12 +133,10 @@ const ShoppingCart = () => {
                                transition-all duration-500 animate-fade-in-up"
                      style={{ animationDelay: `${index * 100}ms` }}>
                   
-                  {/* Glow Effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-red-600/10 to-red-800/10 rounded-3xl 
                                 blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
                   
-                  <div className="relative flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6">
-                    {/* Product Image */}
+                  <div className="relative flex flex-col sm:flex-row gap-4 sm:gap-6">
                     <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-gray-600/50 to-gray-700/50 
                                   rounded-2xl flex-shrink-0 overflow-hidden
                                   group-hover:bg-gradient-to-br group-hover:from-red-600/20 group-hover:to-red-700/20
@@ -169,7 +162,6 @@ const ShoppingCart = () => {
                       </div>
                     </div>
 
-                    {/* Product Info */}
                     <div className="flex-1 min-w-0 w-full sm:w-auto">
                       <h3 className="font-bold text-white text-base sm:text-lg lg:text-xl mb-2 group-hover:text-red-100 transition-colors duration-300 line-clamp-2">
                         {item.name}
@@ -191,9 +183,7 @@ const ShoppingCart = () => {
                       </p>
                     </div>
 
-                    {/* Mobile: Quantity and Remove in separate row */}
                     <div className="flex items-center justify-between w-full sm:w-auto sm:flex-col sm:items-end gap-4">
-                      {/* Quantity Controls */}
                       <div className="flex items-center bg-white/5 backdrop-blur-sm rounded-2xl p-2 border border-white/10">
                         <button
                           onClick={() => updateQuantity(item.id, item.quantity - 1)}
@@ -224,7 +214,6 @@ const ShoppingCart = () => {
                         </button>
                       </div>
 
-                      {/* Remove Button */}
                       <button
                         onClick={() => removeFromCart(item.id)}
                         className="text-gray-400 hover:text-red-400 p-2 sm:p-3 rounded-xl hover:bg-red-500/10 
@@ -240,15 +229,12 @@ const ShoppingCart = () => {
               ))}
             </div>
 
-            {/* Order Summary */}
             <div className="lg:col-span-1">
               <div className="bg-gray-800 rounded-lg p-4 lg:p-6 space-y-4 lg:space-y-6">
-                {/* Free Shipping Notice */}
                 <div className="text-center">
                   <p className="text-gray-300 text-sm">Your cart qualifies for free shipping</p>
                 </div>
 
-                {/* Promo Code */}
                 <div className="space-y-2">
                   {promoCode ? (
                     <div className="bg-green-700 rounded-lg p-3 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
@@ -288,7 +274,6 @@ const ShoppingCart = () => {
                   )}
                 </div>
 
-                {/* Price Breakdown */}
                 <div className="space-y-3 border-t border-gray-700 pt-4">
                   <div className="flex justify-between text-gray-300 text-sm sm:text-base">
                     <span>Subtotal:</span>
@@ -310,7 +295,6 @@ const ShoppingCart = () => {
                   </div>
                 </div>
 
-                {/* Checkout Button */}
                 <button 
                   onClick={() => navigate('/checkout')}
                   className="w-full bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-semibold transition duration-300 flex items-center justify-center space-x-2 text-sm sm:text-base"
@@ -321,7 +305,6 @@ const ShoppingCart = () => {
                   </svg>
                 </button>
 
-                {/* Continue Shopping */}
                 <button 
                   onClick={() => navigate('/products')}
                   className="w-full bg-gray-700 hover:bg-gray-600 text-white py-2 px-6 rounded-lg font-medium transition duration-300 text-sm sm:text-base"

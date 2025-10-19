@@ -7,14 +7,13 @@ const Checkout = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Add a small delay to ensure cart context is loaded
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 100);
     return () => clearTimeout(timer);
   }, []);
 
-  // Destructure with defaults to handle undefined context
+
   const { 
     cartItems = [], 
     cartTotal = 0, 
@@ -48,14 +47,11 @@ const Checkout = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Generate order number
     const orderNum = 'PB' + Date.now().toString().slice(-6);
     setOrderNumber(orderNum);
 
-    // Simulate order processing
     await new Promise(resolve => setTimeout(resolve, 2000));
 
-    // Send order confirmation email using FormSubmit.co
     try {
       const orderMessage = `
 Order Details:
@@ -99,7 +95,6 @@ ${orderNotes ? `Order Notes: ${orderNotes}` : ''}
     clearCart();
   };
 
-  // Loading state
   if (isLoading) {
     return (
       <div className="min-h-screen bg-gray-900">
@@ -111,7 +106,6 @@ ${orderNotes ? `Order Notes: ${orderNotes}` : ''}
     );
   }
 
-  // Debug: Check if cart context is available
   if (!cartContext) {
     return (
       <div className="min-h-screen bg-gray-900">
@@ -131,7 +125,6 @@ ${orderNotes ? `Order Notes: ${orderNotes}` : ''}
     );
   }
 
-  // Order complete state
   if (orderComplete) {
     return (
       <div className="min-h-screen bg-gray-900">
@@ -197,7 +190,6 @@ ${orderNotes ? `Order Notes: ${orderNotes}` : ''}
     <div className="min-h-screen bg-gray-900">
       <Navigation />
       
-      {/* Header */}
       <div className="bg-gradient-to-r from-red-600 to-red-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold text-center">Checkout</h1>
@@ -209,10 +201,8 @@ ${orderNotes ? `Order Notes: ${orderNotes}` : ''}
         <div className="max-w-6xl mx-auto">
           <form onSubmit={handleSubmitOrder} className="grid lg:grid-cols-3 gap-12">
             
-            {/* Customer Information */}
             <div className="lg:col-span-2 space-y-8">
               
-              {/* Contact Information */}
               <div className="bg-gray-800 rounded-lg p-6">
                 <h2 className="text-2xl font-bold text-white mb-6">Contact Information</h2>
                 <div className="grid md:grid-cols-2 gap-4">
@@ -271,7 +261,6 @@ ${orderNotes ? `Order Notes: ${orderNotes}` : ''}
                 </div>
               </div>
 
-              {/* Shipping Address */}
               <div className="bg-gray-800 rounded-lg p-6">
                 <h2 className="text-2xl font-bold text-white mb-6">Shipping Address</h2>
                 <div className="space-y-4">
@@ -350,7 +339,6 @@ ${orderNotes ? `Order Notes: ${orderNotes}` : ''}
                 </div>
               </div>
 
-              {/* Payment Method */}
               <div className="bg-gray-800 rounded-lg p-6">
                 <h2 className="text-2xl font-bold text-white mb-6">Payment Method</h2>
                 <div className="space-y-4">
@@ -399,7 +387,6 @@ ${orderNotes ? `Order Notes: ${orderNotes}` : ''}
                 </div>
               </div>
 
-              {/* Order Notes */}
               <div className="bg-gray-800 rounded-lg p-6">
                 <h2 className="text-2xl font-bold text-white mb-6">Order Notes (Optional)</h2>
                 <textarea
@@ -413,16 +400,13 @@ ${orderNotes ? `Order Notes: ${orderNotes}` : ''}
               </div>
             </div>
 
-            {/* Order Summary */}
             <div className="lg:col-span-1">
               <div className="bg-gray-800 rounded-lg p-6 sticky top-8">
                 <h2 className="text-2xl font-bold text-white mb-6">Order Summary</h2>
                 
-                {/* Items */}
                 <div className="space-y-4 mb-6">
                   {cartItems.map((item) => (
                     <div key={item.id} className="flex items-center space-x-4">
-                      {/* Product Image */}
                       <div className="w-16 h-16 bg-gray-700 rounded-lg overflow-hidden flex-shrink-0">
                         {item.image ? (
                           <img 
@@ -442,14 +426,12 @@ ${orderNotes ? `Order Notes: ${orderNotes}` : ''}
                         )}
                       </div>
                       
-                      {/* Product Info */}
                       <div className="flex-1">
                         <h4 className="text-white font-medium text-sm">{item.name}</h4>
                         <p className="text-gray-400 text-xs">Qty: {item.quantity}</p>
                         <p className="text-gray-400 text-xs">{item.brand}</p>
                       </div>
                       
-                      {/* Price */}
                       <span className="text-white font-medium text-sm">
                         ₱{(item.price * item.quantity).toLocaleString()}
                       </span>
@@ -457,7 +439,6 @@ ${orderNotes ? `Order Notes: ${orderNotes}` : ''}
                   ))}
                 </div>
 
-                {/* Totals */}
                 <div className="border-t border-gray-700 pt-4 space-y-2">
                   <div className="flex justify-between text-gray-300">
                     <span>Subtotal</span>
@@ -479,7 +460,6 @@ ${orderNotes ? `Order Notes: ${orderNotes}` : ''}
                   </div>
                 </div>
 
-                {/* Submit Button */}
                 <button
                   type="submit"
                   disabled={isSubmitting}

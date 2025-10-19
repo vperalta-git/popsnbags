@@ -9,7 +9,7 @@ const Contact = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(''); // 'success', 'error', or ''
+  const [submitStatus, setSubmitStatus] = useState(''); 
 
   const handleChange = (e) => {
     setFormData({
@@ -24,15 +24,14 @@ const Contact = () => {
     setSubmitStatus('');
 
     try {
-      // Using FormSubmit.co for reliable email delivery
       const formData_submit = new FormData();
       formData_submit.append('name', formData.name);
       formData_submit.append('email', formData.email);
       formData_submit.append('subject', `Contact from Pops & Bags: ${formData.subject}`);
       formData_submit.append('message', formData.message);
-      formData_submit.append('_next', window.location.href); // Redirect back to current page
-      formData_submit.append('_captcha', 'false'); // Disable captcha
-      formData_submit.append('_template', 'table'); // Use table template
+      formData_submit.append('_next', window.location.href);
+      formData_submit.append('_captcha', 'false');
+      formData_submit.append('_template', 'table'); 
 
       const response = await fetch('https://formsubmit.co/vionneulrichp@gmail.com', {
         method: 'POST',
@@ -47,7 +46,7 @@ const Contact = () => {
       }
     } catch (error) {
       console.error('Email sending failed:', error);
-      // Fallback: use mailto
+      
       try {
         const emailBody = `
 From: ${formData.name} (${formData.email})
@@ -76,10 +75,8 @@ Sent from Pops & Bags Contact Form
 
   return (
     <div className="min-h-screen bg-gray-900">
-      {/* Navigation */}
       <Navigation />
 
-      {/* Page Header */}
       <section className="bg-gradient-to-r from-red-600 to-red-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
@@ -89,11 +86,9 @@ Sent from Pops & Bags Contact Form
         </div>
       </section>
 
-      {/* Contact Content */}
       <section className="py-16 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Information */}
             <div>
               <h3 className="text-3xl font-bold text-white mb-6">Get In Touch</h3>
               <p className="text-gray-300 mb-8">
@@ -157,11 +152,9 @@ Sent from Pops & Bags Contact Form
               </div>
             </div>
 
-            {/* Contact Form */}
             <div className="bg-gray-700 rounded-lg p-6">
               <h3 className="text-3xl font-bold text-white mb-6">Send us a Message</h3>
               
-              {/* Status Messages */}
               {submitStatus === 'success' && (
                 <div className="mb-6 p-4 bg-green-600 text-white rounded-lg">
                   <p>Thank you for your message! We'll get back to you soon.</p>
@@ -252,7 +245,6 @@ Sent from Pops & Bags Contact Form
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="bg-gray-900 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
