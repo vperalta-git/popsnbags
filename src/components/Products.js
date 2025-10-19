@@ -232,13 +232,13 @@ const Products = () => {
               <div className="text-gray-300">Loading products...</div>
             </div>
           ) : filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 auto-rows-fr">
               {filteredProducts.map((product, index) => (
                 <div key={product.id} 
                      className="group relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl 
-                               overflow-hidden hover:bg-white/10 hover:border-white/20 hover:scale-105 
+                               overflow-hidden shadow-2xl shadow-red-500/10 hover:bg-white/10 hover:border-white/20 
                                hover:shadow-2xl hover:shadow-red-500/20 transition-all duration-500 transform
-                               animate-fade-in-up"
+                               animate-fade-in-up flex flex-col h-full"
                      style={{ animationDelay: `${index * 100}ms` }}>
                   
                   {/* Glow Effect */}
@@ -295,8 +295,8 @@ const Products = () => {
                     </div>
                   </div>
                   
-                  {/* Content */}
-                  <div className="relative p-6">
+                  {/* Content - Using flex to ensure consistent layout */}
+                  <div className="relative p-6 flex flex-col flex-grow">
                     {/* Brand Badge */}
                     {product.brand && (
                       <div className="mb-3">
@@ -312,14 +312,14 @@ const Products = () => {
                     {/* Title and Price */}
                     <div className="mb-3">
                       <Link to={`/product/${product.id}`}>
-                        <h3 className="text-xl font-bold text-white hover:text-red-300 transition-colors duration-300 
-                                     group-hover:text-red-100 mb-2 line-clamp-2">
+                        <h3 className="text-lg font-bold text-white hover:text-red-300 transition-colors duration-300 
+                                     group-hover:text-red-100 mb-2 line-clamp-2 min-h-[3.5rem]">
                           {product.name}
                         </h3>
                       </Link>
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <span className="text-2xl font-bold bg-gradient-to-r from-red-400 to-red-500 
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="flex-1">
+                          <span className="text-xl font-bold bg-gradient-to-r from-red-400 to-red-500 
                                          bg-clip-text text-transparent">
                             {formatPrice(product.price)}
                           </span>
@@ -329,7 +329,7 @@ const Products = () => {
                             </div>
                           )}
                         </div>
-                        <div className="text-xs bg-green-500/20 text-green-300 px-2 py-1 rounded-full border border-green-500/30">
+                        <div className="text-xs bg-green-500/20 text-green-300 px-2 py-1 rounded-full border border-green-500/30 flex-shrink-0">
                           In Stock
                         </div>
                       </div>
@@ -340,31 +340,35 @@ const Products = () => {
                       {product.category}
                     </p>
                     
-                    {/* Description */}
-                    <p className="text-gray-300 mb-6 text-sm leading-relaxed line-clamp-2 
-                                group-hover:text-gray-200 transition-colors duration-300">
-                      {product.description}
-                    </p>
+                    {/* Description - Using flex-grow to fill available space */}
+                    <div className="flex-grow">
+                      <p className="text-gray-300 text-sm leading-relaxed line-clamp-3 mb-6
+                                  group-hover:text-gray-200 transition-colors duration-300">
+                        {product.description || 'Premium automotive part designed for performance and reliability.'}
+                      </p>
+                    </div>
                     
-                    {/* Add to Cart Button */}
-                    <button 
-                      onClick={() => handleAddToCart(product)}
-                      className="w-full relative bg-gradient-to-r from-red-600 to-red-700 text-white py-3 px-6 
-                               rounded-2xl font-semibold hover:from-red-500 hover:to-red-600 
-                               hover:scale-105 hover:shadow-lg hover:shadow-red-500/25
-                               transition-all duration-300 transform active:scale-95
-                               before:absolute before:inset-0 before:rounded-2xl before:bg-white/10 
-                               before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300
-                               group/btn overflow-hidden"
-                    >
-                      <span className="relative z-10 flex items-center justify-center gap-2">
-                        Add to Cart
-                        <svg className="w-5 h-5 transform group-hover/btn:translate-x-1 transition-transform duration-300" 
-                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m0 0h8.5" />
-                        </svg>
-                      </span>
-                    </button>
+                    {/* Add to Cart Button - Always at bottom */}
+                    <div className="mt-auto">
+                      <button 
+                        onClick={() => handleAddToCart(product)}
+                        className="w-full relative bg-gradient-to-r from-red-600 to-red-700 text-white py-3 px-6 
+                                 rounded-2xl font-semibold hover:from-red-500 hover:to-red-600 
+                                 hover:scale-105 hover:shadow-lg hover:shadow-red-500/25
+                                 transition-all duration-300 transform active:scale-95
+                                 before:absolute before:inset-0 before:rounded-2xl before:bg-white/10 
+                                 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300
+                                 group/btn overflow-hidden"
+                      >
+                        <span className="relative z-10 flex items-center justify-center gap-2">
+                          Add to Cart
+                          <svg className="w-5 h-5 transform group-hover/btn:translate-x-1 transition-transform duration-300" 
+                               fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m0 0h8.5" />
+                          </svg>
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}

@@ -181,7 +181,7 @@ const FlashSale = () => {
             </button>
 
             {/* Products Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mx-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mx-16 auto-rows-fr">
               {loading ? (
                 <div className="col-span-full flex justify-center items-center py-20">
                   <div className="flex flex-col items-center">
@@ -195,7 +195,7 @@ const FlashSale = () => {
                        className="group relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl 
                                  overflow-hidden shadow-2xl shadow-red-500/10 
                                  hover:bg-white/10 hover:border-white/20 hover:scale-105 hover:shadow-2xl hover:shadow-red-500/20
-                                 transition-all duration-500 transform animate-fade-in-up"
+                                 transition-all duration-500 transform animate-fade-in-up flex flex-col h-full"
                        style={{ animationDelay: `${index * 100}ms` }}>
                     
                     {/* Glow Effect */}
@@ -251,8 +251,8 @@ const FlashSale = () => {
                                      opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
 
-                    {/* Product Info */}
-                    <div className="relative p-6">
+                    {/* Product Info - Using flex to ensure button alignment */}
+                    <div className="relative p-6 flex flex-col flex-grow">
                       {/* Brand */}
                       {product.brand && (
                         <div className="mb-3">
@@ -264,12 +264,12 @@ const FlashSale = () => {
                       )}
 
                       {/* Product Name */}
-                      <h3 className="text-white font-bold text-lg mb-4 leading-tight group-hover:text-red-100 transition-colors duration-300">
+                      <h3 className="text-white font-bold text-lg mb-4 leading-tight group-hover:text-red-100 transition-colors duration-300 min-h-[3.5rem] flex items-start">
                         {product.name}
                       </h3>
 
-                      {/* Price */}
-                      <div className="flex items-center justify-between mb-4">
+                      {/* Price - Taking up available space */}
+                      <div className="flex items-center justify-between mb-6 flex-grow">
                         <div className="flex items-center space-x-3">
                           <span className="text-2xl font-black bg-gradient-to-r from-red-400 to-red-500 bg-clip-text text-transparent">
                             {formatPrice(product.price)}
@@ -282,29 +282,31 @@ const FlashSale = () => {
                         </div>
                       </div>
 
-                      {/* Add to Cart Button */}
-                      <button
-                        onClick={() => handleAddToCart(product)}
-                        className="w-full group/btn relative bg-gradient-to-r from-red-600 to-red-700 
-                                 hover:from-red-500 hover:to-red-600 text-white py-3 px-6 
-                                 rounded-2xl font-bold transition-all duration-300 
-                                 transform hover:scale-105 active:scale-95
-                                 shadow-lg shadow-red-500/25 hover:shadow-xl hover:shadow-red-500/40
-                                 border border-red-500/30 hover:border-red-400/50
-                                 overflow-hidden"
-                      >
-                        <span className="relative z-10 flex items-center justify-center space-x-2">
-                          <svg className="w-5 h-5 group-hover/btn:animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5M17 13v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6" />
-                          </svg>
-                          <span>Add to Cart</span>
-                        </span>
-                        
-                        {/* Button Shine Effect */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent 
-                                       transform -skew-x-12 -translate-x-full group-hover/btn:translate-x-full 
-                                       transition-transform duration-700"></div>
-                      </button>
+                      {/* Add to Cart Button - Always at bottom */}
+                      <div className="mt-auto">
+                        <button
+                          onClick={() => handleAddToCart(product)}
+                          className="w-full group/btn relative bg-gradient-to-r from-red-600 to-red-700 
+                                   hover:from-red-500 hover:to-red-600 text-white py-3 px-6 
+                                   rounded-2xl font-bold transition-all duration-300 
+                                   transform hover:scale-105 active:scale-95
+                                   shadow-lg shadow-red-500/25 hover:shadow-xl hover:shadow-red-500/40
+                                   border border-red-500/30 hover:border-red-400/50
+                                   overflow-hidden"
+                        >
+                          <span className="relative z-10 flex items-center justify-center space-x-2">
+                            <svg className="w-5 h-5 group-hover/btn:animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5M17 13v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6" />
+                            </svg>
+                            <span>Add to Cart</span>
+                          </span>
+                          
+                          {/* Button Shine Effect */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent 
+                                         transform -skew-x-12 -translate-x-full group-hover/btn:translate-x-full 
+                                         transition-transform duration-700"></div>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 ))
