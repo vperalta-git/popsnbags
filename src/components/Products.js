@@ -11,6 +11,8 @@ const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState('brands'); // 'brands' or 'categories'
+  const [showNotification, setShowNotification] = useState(false);
+  const [notificationProduct, setNotificationProduct] = useState(null);
   const { addToCart } = useCart();
 
   const fetchProducts = useCallback(async () => {
@@ -93,8 +95,14 @@ const Products = () => {
 
   const handleAddToCart = (product) => {
     addToCart(product);
-    // You can add a toast notification here later
+    setNotificationProduct(product);
+    setShowNotification(true);
     console.log(`Added ${product.name} to cart`);
+    
+    // Hide notification after 3 seconds
+    setTimeout(() => {
+      setShowNotification(false);
+    }, 3000);
   };
 
   // Reset to 'all' when switching filter types
@@ -385,6 +393,34 @@ const Products = () => {
           </div>
         </div>
       </footer>
+
+      {/* Add to Cart Notification */}
+      {showNotification && notificationProduct && (
+        <div 
+          className="fixed top-20 right-4 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg z-50 animate-pulse"
+          style={{
+            position: 'fixed',
+            top: '80px',
+            right: '16px',
+            zIndex: 9999,
+            backgroundColor: '#10B981',
+            color: 'white',
+            padding: '16px 24px',
+            borderRadius: '8px',
+            boxShadow: '0 10px 25px rgba(0, 0, 0, 0.3)'
+          }}
+        >
+          <div className="flex items-center space-x-3">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            <div>
+              <p className="font-bold">Added to Cart!</p>
+              <p className="text-sm">{notificationProduct.name}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
