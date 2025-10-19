@@ -145,15 +145,27 @@ const ShoppingCart = () => {
                   <div className="relative flex items-center space-x-6">
                     {/* Product Image */}
                     <div className="w-20 h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-gray-600/50 to-gray-700/50 
-                                  rounded-2xl flex-shrink-0 flex items-center justify-center
+                                  rounded-2xl flex-shrink-0 overflow-hidden
                                   group-hover:bg-gradient-to-br group-hover:from-red-600/20 group-hover:to-red-700/20
                                   transition-all duration-500 shadow-lg">
-                      <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-700 rounded-xl 
+                      {item.image ? (
+                        <img 
+                          src={item.image} 
+                          alt={item.name}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          onError={(e) => {
+                            e.target.style.display = 'none';
+                            e.target.parentElement.querySelector('.fallback-icon').style.display = 'flex';
+                          }}
+                        />
+                      ) : null}
+                      <div className="fallback-icon w-full h-full bg-gradient-to-r from-red-500 to-red-700 rounded-xl 
                                     flex items-center justify-center shadow-lg shadow-red-500/30
-                                    group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
+                                    group-hover:scale-110 group-hover:rotate-6 transition-all duration-500"
+                           style={{ display: item.image ? 'none' : 'flex' }}>
+                        <span className="text-white text-xs font-bold">
+                          {item.brand || 'PART'}
+                        </span>
                       </div>
                     </div>
 

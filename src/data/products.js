@@ -146,13 +146,13 @@ export const getStaticProducts = () => {
     },
     {
       id: 27,
-      name: 'ROTA Torque',
+      name: 'ROTA GTR',
       price: 37000,
       originalPrice: 45000,
       category: 'Wheels',
       brand: 'ROTA',
       image: '/images/productpics/GTR-removebg-preview.png',
-      description: 'Size: 18x8.5, Offset (ET): +45, PCD: 5x114.3, Color: Matte Bronze. The Rota Torque is known for its lightweight multi-spoke design and clean aesthetic. A favorite among Subaru and Evo owners.',
+      description: 'Size: 18x8.5, Offset (ET): +45, PCD: 5x114.3, Color: White. The Rota GTR is known for its 5-spoke design and clean aesthetic. A favorite among Nissan GTR owners.',
       specifications: 'Set of 4 wheels'
     },
     {
@@ -699,10 +699,10 @@ export const getStaticProducts = () => {
     {
       id: 71,
       name: 'Wiper Delete Honda Jazz',
-      price: 900,
+      price: 400,
       category: 'Body Kit',
       brand: 'Honda',
-      image: '/images/productpics/Wiper_Delete_Honda_Jazz.jpg',
+      image: '/images/productpics/wipdel.jpg',
       description: 'Cleans up the rear end for a sleek look, lightweight and easy to install.'
     },
     {

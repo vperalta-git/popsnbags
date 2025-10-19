@@ -302,26 +302,29 @@ const ProductDetail = () => {
         </div>
       </div>
 
-      {/* Debug info */}
-      {console.log('showNotification state:', showNotification)}
-
       {/* Add to Cart Notification */}
       {showNotification && (
         <div 
-          className="fixed top-4 right-4 z-[9999] bg-green-600 text-white px-6 py-4 rounded-lg shadow-2xl border-2 border-white transform transition-all duration-500 ease-in-out animate-bounce"
+          className="fixed top-20 right-4 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg z-50 animate-pulse"
           style={{
-            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(34, 197, 94, 0.5)',
+            position: 'fixed',
+            top: '80px',
+            right: '16px',
+            zIndex: 9999,
+            backgroundColor: '#10B981',
+            color: 'white',
+            padding: '16px 24px',
+            borderRadius: '8px',
+            boxShadow: '0 10px 25px rgba(0, 0, 0, 0.3)'
           }}
         >
           <div className="flex items-center space-x-3">
-            <div className="bg-green-500 rounded-full p-2 animate-pulse">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
             <div>
-              <p className="font-bold text-lg">✅ Added to Cart!</p>
-              <p className="text-sm text-green-100 font-medium">{quantity} x {product?.name}</p>
+              <p className="font-bold">Added to Cart!</p>
+              <p className="text-sm">{quantity} x {product?.name}</p>
             </div>
           </div>
         </div>

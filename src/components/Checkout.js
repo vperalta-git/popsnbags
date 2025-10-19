@@ -421,12 +421,36 @@ ${orderNotes ? `Order Notes: ${orderNotes}` : ''}
                 {/* Items */}
                 <div className="space-y-4 mb-6">
                   {cartItems.map((item) => (
-                    <div key={item.id} className="flex justify-between items-start">
-                      <div className="flex-1">
-                        <h4 className="text-white font-medium">{item.name}</h4>
-                        <p className="text-gray-400 text-sm">Qty: {item.quantity}</p>
+                    <div key={item.id} className="flex items-center space-x-4">
+                      {/* Product Image */}
+                      <div className="w-16 h-16 bg-gray-700 rounded-lg overflow-hidden flex-shrink-0">
+                        {item.image ? (
+                          <img 
+                            src={item.image} 
+                            alt={item.name}
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              e.target.src = '/images/placeholder.jpg';
+                            }}
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-red-600 flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">
+                              {item.brand || 'PART'}
+                            </span>
+                          </div>
+                        )}
                       </div>
-                      <span className="text-white font-medium">
+                      
+                      {/* Product Info */}
+                      <div className="flex-1">
+                        <h4 className="text-white font-medium text-sm">{item.name}</h4>
+                        <p className="text-gray-400 text-xs">Qty: {item.quantity}</p>
+                        <p className="text-gray-400 text-xs">{item.brand}</p>
+                      </div>
+                      
+                      {/* Price */}
+                      <span className="text-white font-medium text-sm">
                         ₱{(item.price * item.quantity).toLocaleString()}
                       </span>
                     </div>
