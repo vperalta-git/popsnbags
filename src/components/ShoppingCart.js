@@ -85,37 +85,37 @@ const ShoppingCart = () => {
 
       {/* Empty Cart Message */}
       {cartItems.length === 0 ? (
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <div className="relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-16 
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 text-center">
+          <div className="relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-8 sm:p-16 
                         shadow-2xl shadow-red-500/10 animate-fade-in-up">
             {/* Background Effects */}
             <div className="absolute inset-0 bg-gradient-to-r from-red-600/10 to-red-800/10 rounded-3xl blur-xl"></div>
             
             <div className="relative">
-              <div className="w-32 h-32 bg-gradient-to-r from-gray-600 to-gray-700 rounded-3xl 
-                            flex items-center justify-center mx-auto mb-8 shadow-lg
+              <div className="w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-r from-gray-600 to-gray-700 rounded-3xl 
+                            flex items-center justify-center mx-auto mb-6 sm:mb-8 shadow-lg
                             animate-float">
-                <svg className="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-12 h-12 sm:w-16 sm:h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m0 0h8.5" />
                 </svg>
               </div>
-              <h2 className="text-3xl font-bold text-white mb-6">Your cart is empty</h2>
-              <p className="text-gray-300 mb-10 text-lg leading-relaxed max-w-md mx-auto">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6">Your cart is empty</h2>
+              <p className="text-gray-300 mb-8 sm:mb-10 text-base sm:text-lg leading-relaxed max-w-md mx-auto">
                 Discover amazing car parts and start building your dream ride
               </p>
               <button
                 onClick={() => navigate('/products')}
-                className="group relative bg-gradient-to-r from-red-600 to-red-700 text-white px-10 py-4 
-                         rounded-2xl font-bold text-lg hover:from-red-500 hover:to-red-600 
+                className="group relative bg-gradient-to-r from-red-600 to-red-700 text-white px-8 sm:px-10 py-3 sm:py-4 
+                         rounded-2xl font-bold text-base sm:text-lg hover:from-red-500 hover:to-red-600 
                          hover:scale-105 hover:shadow-lg hover:shadow-red-500/25
                          transition-all duration-300 transform active:scale-95
                          before:absolute before:inset-0 before:rounded-2xl before:bg-white/10 
                          before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300
                          overflow-hidden"
               >
-                <span className="relative z-10 flex items-center gap-3">
+                <span className="relative z-10 flex items-center gap-2 sm:gap-3">
                   Shop Now
-                  <svg className="w-6 h-6 transform group-hover:translate-x-1 transition-transform duration-300" 
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-1 transition-transform duration-300" 
                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
@@ -142,9 +142,9 @@ const ShoppingCart = () => {
                   <div className="absolute inset-0 bg-gradient-to-r from-red-600/10 to-red-800/10 rounded-3xl 
                                 blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
                   
-                  <div className="relative flex items-center space-x-6">
+                  <div className="relative flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6">
                     {/* Product Image */}
-                    <div className="w-20 h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-gray-600/50 to-gray-700/50 
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-gray-600/50 to-gray-700/50 
                                   rounded-2xl flex-shrink-0 overflow-hidden
                                   group-hover:bg-gradient-to-br group-hover:from-red-600/20 group-hover:to-red-700/20
                                   transition-all duration-500 shadow-lg">
@@ -170,17 +170,17 @@ const ShoppingCart = () => {
                     </div>
 
                     {/* Product Info */}
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-bold text-white text-lg lg:text-xl mb-2 group-hover:text-red-100 transition-colors duration-300">
+                    <div className="flex-1 min-w-0 w-full sm:w-auto">
+                      <h3 className="font-bold text-white text-base sm:text-lg lg:text-xl mb-2 group-hover:text-red-100 transition-colors duration-300 line-clamp-2">
                         {item.name}
                       </h3>
-                      <div className="flex items-center gap-3 mb-2">
-                        <p className="text-xl font-bold bg-gradient-to-r from-red-400 to-red-500 bg-clip-text text-transparent">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2">
+                        <p className="text-lg sm:text-xl font-bold bg-gradient-to-r from-red-400 to-red-500 bg-clip-text text-transparent">
                           {formatPrice(item.price)}
                         </p>
                         {item.brand && (
                           <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold
-                                         bg-gradient-to-r from-red-500/20 to-red-700/20 text-red-300 border border-red-500/30">
+                                         bg-gradient-to-r from-red-500/20 to-red-700/20 text-red-300 border border-red-500/30 w-fit">
                             {item.brand}
                           </span>
                         )}
@@ -191,47 +191,50 @@ const ShoppingCart = () => {
                       </p>
                     </div>
 
-                    {/* Quantity Controls */}
-                    <div className="flex items-center bg-white/5 backdrop-blur-sm rounded-2xl p-2 border border-white/10">
-                      <button
-                        onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                        className="w-10 h-10 bg-gray-600/50 hover:bg-red-600 text-white rounded-xl 
-                                 flex items-center justify-center transition-all duration-300 hover:scale-110
-                                 group/btn"
-                      >
-                        <svg className="w-4 h-4 group-hover/btn:scale-125 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
-                        </svg>
-                      </button>
+                    {/* Mobile: Quantity and Remove in separate row */}
+                    <div className="flex items-center justify-between w-full sm:w-auto sm:flex-col sm:items-end gap-4">
+                      {/* Quantity Controls */}
+                      <div className="flex items-center bg-white/5 backdrop-blur-sm rounded-2xl p-2 border border-white/10">
+                        <button
+                          onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                          className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-600/50 hover:bg-red-600 text-white rounded-xl 
+                                   flex items-center justify-center transition-all duration-300 hover:scale-110
+                                   group/btn"
+                        >
+                          <svg className="w-3 h-3 sm:w-4 sm:h-4 group-hover/btn:scale-125 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
+                          </svg>
+                        </button>
 
-                      <div className="w-16 text-center">
-                        <span className="text-xl font-bold text-white bg-gradient-to-r from-white to-red-100 bg-clip-text text-transparent">
-                          {item.quantity}
-                        </span>
+                        <div className="w-12 sm:w-16 text-center">
+                          <span className="text-lg sm:text-xl font-bold text-white bg-gradient-to-r from-white to-red-100 bg-clip-text text-transparent">
+                            {item.quantity}
+                          </span>
+                        </div>
+
+                        <button
+                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                          className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 
+                                   text-white rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110
+                                   group/btn shadow-lg shadow-red-500/25"
+                        >
+                          <svg className="w-3 h-3 sm:w-4 sm:h-4 group-hover/btn:scale-125 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                          </svg>
+                        </button>
                       </div>
 
+                      {/* Remove Button */}
                       <button
-                        onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                        className="w-10 h-10 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 
-                                 text-white rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110
-                                 group/btn shadow-lg shadow-red-500/25"
+                        onClick={() => removeFromCart(item.id)}
+                        className="text-gray-400 hover:text-red-400 p-2 sm:p-3 rounded-xl hover:bg-red-500/10 
+                                 transition-all duration-300 hover:scale-110 group/remove"
                       >
-                        <svg className="w-4 h-4 group-hover/btn:scale-125 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        <svg className="w-5 h-5 sm:w-6 sm:h-6 group-hover/remove:scale-125 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                         </svg>
                       </button>
                     </div>
-
-                    {/* Remove Button */}
-                    <button
-                      onClick={() => removeFromCart(item.id)}
-                      className="text-gray-400 hover:text-red-400 p-3 rounded-xl hover:bg-red-500/10 
-                               transition-all duration-300 hover:scale-110 group/remove"
-                    >
-                      <svg className="w-6 h-6 group-hover/remove:scale-125 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                      </svg>
-                    </button>
                   </div>
                 </div>
               ))}
@@ -248,22 +251,22 @@ const ShoppingCart = () => {
                 {/* Promo Code */}
                 <div className="space-y-2">
                   {promoCode ? (
-                    <div className="bg-green-700 rounded-lg p-3 flex justify-between items-center">
+                    <div className="bg-green-700 rounded-lg p-3 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                       <div>
-                        <p className="text-white font-semibold">{promoCode.code}</p>
-                        <p className="text-green-200 text-sm">{promoCode.description}</p>
+                        <p className="text-white font-semibold text-sm sm:text-base">{promoCode.code}</p>
+                        <p className="text-green-200 text-xs sm:text-sm">{promoCode.description}</p>
                       </div>
                       <button
                         onClick={handleRemovePromoCode}
-                        className="text-green-200 hover:text-white"
+                        className="text-green-200 hover:text-white p-1"
                       >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                         </svg>
                       </button>
                     </div>
                   ) : (
-                    <div className="flex space-x-2">
+                    <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
                       <input
                         type="text"
                         value={promoCodeInput}
@@ -274,34 +277,34 @@ const ShoppingCart = () => {
                       />
                       <button
                         onClick={handleApplyPromoCode}
-                        className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition duration-200"
+                        className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition duration-200 w-full sm:w-auto"
                       >
                         Apply
                       </button>
                     </div>
                   )}
                   {promoError && (
-                    <p className="text-red-400 text-sm">{promoError}</p>
+                    <p className="text-red-400 text-xs sm:text-sm">{promoError}</p>
                   )}
                 </div>
 
                 {/* Price Breakdown */}
                 <div className="space-y-3 border-t border-gray-700 pt-4">
-                  <div className="flex justify-between text-gray-300">
+                  <div className="flex justify-between text-gray-300 text-sm sm:text-base">
                     <span>Subtotal:</span>
                     <span>{formatPrice(subtotal)}</span>
                   </div>
                   {promoCode && (
-                    <div className="flex justify-between text-green-400">
+                    <div className="flex justify-between text-green-400 text-sm sm:text-base">
                       <span>Discount ({promoCode.discount}%):</span>
                       <span>-{formatPrice(discountAmount)}</span>
                     </div>
                   )}
-                  <div className="flex justify-between text-gray-300">
+                  <div className="flex justify-between text-gray-300 text-sm sm:text-base">
                     <span>Shipping:</span>
                     <span>Free</span>
                   </div>
-                  <div className="flex justify-between text-xl font-bold text-white border-t border-gray-700 pt-3">
+                  <div className="flex justify-between text-lg sm:text-xl font-bold text-white border-t border-gray-700 pt-3">
                     <span>Total:</span>
                     <span>{formatPrice(total)}</span>
                   </div>
@@ -310,10 +313,10 @@ const ShoppingCart = () => {
                 {/* Checkout Button */}
                 <button 
                   onClick={() => navigate('/checkout')}
-                  className="w-full bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-semibold transition duration-300 flex items-center justify-center space-x-2"
+                  className="w-full bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-semibold transition duration-300 flex items-center justify-center space-x-2 text-sm sm:text-base"
                 >
                   <span>Checkout</span>
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </button>
@@ -321,7 +324,7 @@ const ShoppingCart = () => {
                 {/* Continue Shopping */}
                 <button 
                   onClick={() => navigate('/products')}
-                  className="w-full bg-gray-700 hover:bg-gray-600 text-white py-2 px-6 rounded-lg font-medium transition duration-300"
+                  className="w-full bg-gray-700 hover:bg-gray-600 text-white py-2 px-6 rounded-lg font-medium transition duration-300 text-sm sm:text-base"
                 >
                   Continue Shopping
                 </button>
