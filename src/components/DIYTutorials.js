@@ -7,24 +7,24 @@ const DIYTutorials = () => {
   const tutorials = [
     {
       id: 1,
-      title: "How to Install Cold Air Intake",
+      title: "Cold Air Intake",
       category: "engine",
       difficulty: "Beginner",
       duration: "15 mins",
-      thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-      videoId: "dQw4w9WgXcQ",
+      thumbnail: "https://img.youtube.com/vi/q9ZcPtvTKpY/maxresdefault.jpg",
+      videoId: "q9ZcPtvTKpY",
       description: "Step-by-step guide to installing a cold air intake system for better engine performance.",
       tools: ["Screwdriver set", "Socket wrench", "Pliers"],
       parts: ["Cold Air Intake Kit", "Clamps", "Air Filter"]
     },
     {
       id: 2,
-      title: "Installing Coilover Suspension",
+      title: "Coilover Suspension",
       category: "suspension",
       difficulty: "Advanced",
       duration: "45 mins",
-      thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-      videoId: "dQw4w9WgXcQ",
+      thumbnail: "https://img.youtube.com/vi/8Qou-MDcYKA/maxresdefault.jpg",
+      videoId: "8Qou-MDcYKA",
       description: "Professional guide to installing coilover suspension for improved handling and stance.",
       tools: ["Jack", "Jack stands", "Spring compressor", "Socket set"],
       parts: ["Coilover kit", "Mounting hardware", "Alignment bolts"]
@@ -35,8 +35,8 @@ const DIYTutorials = () => {
       category: "wheels",
       difficulty: "Beginner",
       duration: "20 mins",
-      thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-      videoId: "dQw4w9WgXcQ",
+      thumbnail: "https://img.youtube.com/vi/ik_HElMb5n0/maxresdefault.jpg",
+      videoId: "ik_HElMb5n0",
       description: "Learn how to properly mount and balance wheels and tires.",
       tools: ["Tire iron", "Jack", "Torque wrench"],
       parts: ["Wheels", "Tires", "Lug nuts", "Valve stems"]
@@ -47,8 +47,8 @@ const DIYTutorials = () => {
       category: "body",
       difficulty: "Intermediate",
       duration: "60 mins",
-      thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-      videoId: "dQw4w9WgXcQ",
+      thumbnail: "https://img.youtube.com/vi/qGDy3T1qHz4/maxresdefault.jpg",
+      videoId: "qGDy3T1qHz4",
       description: "Professional tips for installing body kits, spoilers, and exterior accessories.",
       tools: ["Drill", "Measuring tape", "Level", "Trim removal tools"],
       parts: ["Body kit pieces", "Mounting hardware", "Adhesive"]
@@ -59,8 +59,8 @@ const DIYTutorials = () => {
       category: "exhaust",
       difficulty: "Intermediate",
       duration: "35 mins",
-      thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-      videoId: "dQw4w9WgXcQ",
+      thumbnail: "https://img.youtube.com/vi/v-s4ZCsC1oY/maxresdefault.jpg",
+      videoId: "v-s4ZCsC1oY",
       description: "Complete guide to installing cat-back exhaust systems for better sound and performance.",
       tools: ["Jack", "Jack stands", "Reciprocating saw", "Socket set"],
       parts: ["Exhaust system", "Gaskets", "Clamps", "Hangers"]
@@ -71,8 +71,8 @@ const DIYTutorials = () => {
       category: "brakes",
       difficulty: "Intermediate",
       duration: "30 mins",
-      thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-      videoId: "dQw4w9WgXcQ",
+      thumbnail: "https://img.youtube.com/vi/6RQ9UabOIPg/maxresdefault.jpg",
+      videoId: "6RQ9UabOIPg",
       description: "Safety-focused guide to replacing brake pads and rotors.",
       tools: ["C-clamp", "Socket set", "Brake cleaner", "Gloves"],
       parts: ["Brake pads", "Brake rotors", "Brake fluid"]
@@ -143,18 +143,46 @@ const DIYTutorials = () => {
 
           {/* Tutorials Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredTutorials.map((tutorial) => (
-              <div key={tutorial.id} className="bg-gray-700 rounded-lg overflow-hidden hover:bg-gray-600 transition duration-300">
+            {filteredTutorials.map((tutorial, index) => (
+              <div key={tutorial.id} 
+                   className="group relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl 
+                             overflow-hidden shadow-2xl shadow-red-500/10 hover:bg-white/10 hover:border-white/20 
+                             hover:shadow-2xl hover:shadow-red-500/20 transition-all duration-500 transform
+                             animate-fade-in-up"
+                   style={{ animationDelay: `${index * 100}ms` }}>
+                
+                {/* Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-red-600/10 to-red-800/10 rounded-3xl 
+                               blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
                 
                 {/* Video Thumbnail */}
-                <div className="relative">
+                <div className="relative group cursor-pointer">
                   <img 
                     src={tutorial.thumbnail} 
                     alt={tutorial.title}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      // Fallback to a different YouTube thumbnail quality if maxresdefault fails
+                      if (e.target.src.includes('maxresdefault')) {
+                        e.target.src = `https://img.youtube.com/vi/${tutorial.videoId}/hqdefault.jpg`;
+                      } else {
+                        // Final fallback to a placeholder
+                        e.target.src = `data:image/svg+xml;base64,${btoa(`
+                          <svg width="320" height="180" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="#374151"/>
+                            <text x="50%" y="50%" font-family="Arial" font-size="16" fill="#9CA3AF" text-anchor="middle" dy=".3em">
+                              ${tutorial.title}
+                            </text>
+                          </svg>
+                        `)}`;
+                      }
+                    }}
                   />
-                  <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
-                    <button className="bg-red-600 text-white p-4 rounded-full hover:bg-red-700 transition duration-300">
+                  <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <button 
+                      onClick={() => window.open(`https://www.youtube.com/watch?v=${tutorial.videoId}`, '_blank')}
+                      className="bg-red-600 text-white p-4 rounded-full hover:bg-red-700 transition-all duration-300 transform hover:scale-110"
+                    >
                       <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
                       </svg>
@@ -162,31 +190,41 @@ const DIYTutorials = () => {
                   </div>
                   
                   {/* Duration badge */}
-                  <div className="absolute top-4 right-4 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-sm">
+                  <div className="absolute top-4 right-4 bg-black bg-opacity-75 text-white px-3 py-1 rounded-full text-sm font-semibold">
                     {tutorial.duration}
+                  </div>
+                  
+                  {/* YouTube logo */}
+                  <div className="absolute bottom-4 left-4 bg-red-600 text-white px-2 py-1 rounded text-xs font-bold">
+                    ▶ YouTube
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium text-white ${getDifficultyColor(tutorial.difficulty)}`}>
+                <div className="relative p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className={`px-3 py-1 rounded-full text-xs font-semibold text-white ${getDifficultyColor(tutorial.difficulty)}`}>
                       {tutorial.difficulty}
                     </span>
-                    <span className="text-gray-400 text-sm capitalize">
-                      {categories.find(cat => cat.id === tutorial.category)?.icon} {tutorial.category}
+                    <span className="text-gray-300 text-sm capitalize flex items-center gap-1">
+                      <span>{categories.find(cat => cat.id === tutorial.category)?.icon}</span>
+                      <span>{tutorial.category}</span>
                     </span>
                   </div>
                   
-                  <h4 className="text-xl font-semibold text-white mb-3">{tutorial.title}</h4>
-                  <p className="text-gray-300 mb-4 text-sm">{tutorial.description}</p>
+                  <h4 className="text-xl font-bold text-white mb-3 group-hover:text-red-100 transition-colors duration-300">
+                    {tutorial.title}
+                  </h4>
+                  <p className="text-gray-300 mb-4 text-sm leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                    {tutorial.description}
+                  </p>
                   
                   {/* Tools needed */}
                   <div className="mb-4">
-                    <h5 className="text-white font-medium mb-2">Tools Needed:</h5>
+                    <h5 className="text-white font-semibold mb-2 text-sm">🔧 Tools Needed:</h5>
                     <div className="flex flex-wrap gap-1">
                       {tutorial.tools.map((tool, index) => (
-                        <span key={index} className="bg-gray-600 text-gray-300 px-2 py-1 rounded text-xs">
+                        <span key={index} className="bg-gray-600/50 text-gray-300 px-2 py-1 rounded-full text-xs border border-gray-500/30">
                           {tool}
                         </span>
                       ))}
@@ -195,10 +233,10 @@ const DIYTutorials = () => {
                   
                   {/* Parts needed */}
                   <div className="mb-6">
-                    <h5 className="text-white font-medium mb-2">Parts Needed:</h5>
+                    <h5 className="text-white font-semibold mb-2 text-sm">🔩 Parts Needed:</h5>
                     <div className="flex flex-wrap gap-1">
                       {tutorial.parts.map((part, index) => (
-                        <span key={index} className="bg-red-600 text-white px-2 py-1 rounded text-xs">
+                        <span key={index} className="bg-gradient-to-r from-red-500/20 to-red-700/20 text-red-300 border border-red-500/30 px-2 py-1 rounded-full text-xs">
                           {part}
                         </span>
                       ))}
@@ -207,12 +245,20 @@ const DIYTutorials = () => {
                   
                   <button 
                     onClick={() => window.open(`https://www.youtube.com/watch?v=${tutorial.videoId}`, '_blank')}
-                    className="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition duration-300 flex items-center justify-center"
+                    className="w-full relative bg-gradient-to-r from-red-600 to-red-700 text-white py-3 px-6 
+                             rounded-2xl font-semibold hover:from-red-500 hover:to-red-600 
+                             hover:scale-105 hover:shadow-lg hover:shadow-red-500/25
+                             transition-all duration-300 transform active:scale-95
+                             before:absolute before:inset-0 before:rounded-2xl before:bg-white/10 
+                             before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300
+                             group/btn overflow-hidden"
                   >
-                    <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                    </svg>
-                    Watch Tutorial
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                      <svg className="w-5 h-5 group-hover/btn:animate-bounce" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                      </svg>
+                      <span>Watch Tutorial</span>
+                    </span>
                   </button>
                 </div>
               </div>
