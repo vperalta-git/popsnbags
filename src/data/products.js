@@ -649,7 +649,7 @@ export const getStaticProducts = () => {
       category: 'Body Kit',
       brand: 'Toyota',
       image: '/images/productpics/Toyota Corolla AE111 Euro 2 set.jpg',
-      description: 'Front and rear bumper conversion to the sporty Thai look, includes signal lights and grille.'
+      description: 'Front and rear bumper conversion to the sporty Euro 2 look, includes signal lights and grille.'
     },
     {
       id: 66,
