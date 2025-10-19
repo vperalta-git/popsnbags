@@ -11,6 +11,7 @@ const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [showNotification, setShowNotification] = useState(false);
   const { addToCart } = useCart();
 
   // In a real app, this would be your PHP backend URL
@@ -69,7 +70,12 @@ const ProductDetail = () => {
     for (let i = 0; i < quantity; i++) {
       addToCart(product);
     }
-    alert(`Added ${quantity} x ${product.name} to cart!`);
+    // Show notification
+    setShowNotification(true);
+    // Hide notification after 3 seconds
+    setTimeout(() => {
+      setShowNotification(false);
+    }, 3000);
   };
 
   if (loading) {
@@ -142,7 +148,7 @@ const ProductDetail = () => {
         <div className="lg:grid lg:grid-cols-2 lg:gap-12">
           {/* Product Image */}
           <div className="mb-6 lg:mb-0">
-            <div className="aspect-square bg-gradient-to-br from-red-600 to-red-800 rounded-lg overflow-hidden relative">
+            <div className="aspect-square bg-gradient-to-br from-gray-700 to-gray-800 rounded-lg overflow-hidden relative">
               {product.image ? (
                 <img 
                   src={product.image} 
@@ -292,6 +298,23 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
+
+      {/* Add to Cart Notification */}
+      {showNotification && (
+        <div className="fixed top-20 right-4 z-50 bg-green-600 text-white px-6 py-4 rounded-lg shadow-lg transform transition-all duration-300 ease-in-out opacity-100 translate-y-0">
+          <div className="flex items-center space-x-3">
+            <div className="bg-green-500 rounded-full p-1">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div>
+              <p className="font-semibold">Added to Cart!</p>
+              <p className="text-sm text-green-100">{quantity} x {product.name}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

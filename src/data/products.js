@@ -693,7 +693,7 @@ export const getStaticProducts = () => {
       price: 11000,
       category: 'Body Kit',
       brand: 'Toyota',
-      image: '/images/productpics/Toyota Vios GR-S Style Rear Wing.jpg',
+      image: '/images/productpics/viosback.jpg',
       description: 'GR-inspired design, ABS material, bolt-on fit for 2020+ models.'
     },
     {
@@ -702,7 +702,7 @@ export const getStaticProducts = () => {
       price: 900,
       category: 'Body Kit',
       brand: 'Honda',
-      image: '/images/productpics/Wiper Delete Honda Jazz.jpg',
+      image: '/images/productpics/Wiper_Delete_Honda_Jazz.jpg',
       description: 'Cleans up the rear end for a sleek look, lightweight and easy to install.'
     },
     {
